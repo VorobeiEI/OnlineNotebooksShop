@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="ctg" uri="mytag"%>
 <fmt:setLocale value="${locale}"  scope="session"/>
-<fmt:setBundle basename="java.resources.pagesCont.pagecontent" var="rb" />
+<fmt:setBundle basename="pagesCont.pagecontent" var="rb" />
 
 <header class="navbar navbar-static-top bs-docs-nav" id="top">
     <div class="container" >

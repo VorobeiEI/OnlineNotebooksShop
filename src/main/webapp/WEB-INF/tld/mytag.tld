@@ -9,8 +9,7 @@
 
     <function>
         <name>notnull</name>
-        <function-class>controller.tag.NotNullFunction
-        </function-class>
+        <function-class>controller.tag.NotNullFunction</function-class>
         <function-signature>String notNull(java.lang.Object)
         </function-signature>
     </function>

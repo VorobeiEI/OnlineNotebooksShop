@@ -16,6 +16,14 @@
         <param-name>mail</param-name>
         <param-value>/WEB-INF/config/mail.properties</param-value>
     </context-param>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/jsp/errors/404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.RuntimeException</exception-type>
+        <location>/jsp/errors/error.jsp</location>
+    </error-page>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>

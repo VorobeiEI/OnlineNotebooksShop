@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by jacksparrow on 01.10.17.
  */
 public class ActionFactory {
-    public ActionCommand defineComand(HttpServletRequest request){
+    public ActionCommand defineCommand(HttpServletRequest request){
         ActionCommand current = new EmptyCommand();
 
         // Extract the command name from the request

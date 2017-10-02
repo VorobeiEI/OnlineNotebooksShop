@@ -1,5 +1,11 @@
 package controller;
 
+import bussinessprocesses.command.ActionCommand;
+import bussinessprocesses.command.actionfactory.ActionFactory;
+import bussinessprocesses.implementation.UserLogicImpl;
+import bussinessprocesses.interfaces.UserLogic;
+import bussinessprocesses.resource.ConfigurationManager;
+import bussinessprocesses.resource.MessagesManager;
 import entity.users.UserType;
 
 import javax.servlet.RequestDispatcher;
@@ -19,17 +25,18 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        processRequest(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+       processRequest(req, resp);
     }
 
     @Override
     public void init() throws ServletException {
-        super.init();
+        UserLogic userManagementBP = new UserLogicImpl();
+        userManagementBP.initDefaultUser();
     }
 
     private void processRequest(HttpServletRequest request,
@@ -52,7 +59,7 @@ public class Controller extends HttpServlet {
             dispatcher.forward(request, response);
         } else {
             page = ConfigurationManager.getProperty("path.page.index");
-            request.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
+            request.getSession().setAttribute("nullPage", MessagesManager.getProperty("message.nullpage"));
             response.sendRedirect(request.getContextPath() + page);
         }
     }

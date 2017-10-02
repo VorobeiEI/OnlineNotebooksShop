@@ -9,6 +9,7 @@ import entity.users.UserStatus;
 import entity.users.UserType;
 import org.apache.log4j.Logger;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -16,7 +17,7 @@ import java.util.ResourceBundle;
  */
 public class UserLogicImpl implements UserLogic{
     private static final Logger logger = Logger.getLogger(UserLogicImpl.class);
-    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("epam.finaltask.lukash.resource.util");
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("resources/config.properties");
     private UserDAO userDAO = new UserDAOImpl();
 
 

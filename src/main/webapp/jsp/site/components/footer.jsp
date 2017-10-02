@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <fmt:setLocale value="${locale}"  scope="session"/>
-<fmt:setBundle basename="java.resources.pagesCont.pagecontent" var="rb" />
+<fmt:setBundle basename="pagesCont.pagecontent" var="rb" />
 	
 <footer class="bs-docs-footer">
 	<div class="container">
