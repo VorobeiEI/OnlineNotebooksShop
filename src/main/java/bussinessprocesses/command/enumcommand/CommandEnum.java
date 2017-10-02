@@ -1,7 +1,9 @@
 package bussinessprocesses.command.enumcommand;
 
 import bussinessprocesses.command.ActionCommand;
+import bussinessprocesses.command.AdminPage.AdminPageCommand;
 import bussinessprocesses.command.mainpages.*;
+import bussinessprocesses.command.otherPages.*;
 
 /**
  * Created by jacksparrow on 01.10.17.
@@ -58,16 +60,7 @@ public enum CommandEnum {
             this.command = new AdminPageCommand();
         }
     },
-    ADDNEWS {
-        {
-            this.command = new AddNewsPageCommand();
-        }
-    },
-    NEWSDETAILS {
-        {
-            this.command = new NewsDetailsPageCommand();
-        }
-    },
+
     MAIL {
         {
             this.command = new MailPageCommand();
