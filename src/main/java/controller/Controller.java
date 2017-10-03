@@ -36,7 +36,7 @@ public class Controller extends HttpServlet {
     @Override
     public void init() throws ServletException {
         UserLogic userManagementBP = new UserLogicImpl();
-        userManagementBP.initDefaultUser();
+//        userManagementBP.initDefaultUser();
     }
 
     private void processRequest(HttpServletRequest request,

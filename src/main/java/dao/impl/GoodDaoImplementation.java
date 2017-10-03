@@ -1,5 +1,6 @@
 package dao.impl;
 
+import dao.connectionPool.ConnectionPool;
 import dao.exception.DatabaseException;
 import dao.interfaces.ProductsDAO;
 import entity.Product.Good;
@@ -271,7 +272,7 @@ public class GoodDaoImplementation implements ProductsDAO {
     protected Connection getConnection(){
         Connection connection = null;
             try {
-                 connection =  ConnectorDB.getConnection();
+                 connection =  ConnectionPool.getConnection();
             }catch (SQLException e){
                 logger.error(e.getMessage(), e);
                 throw new DatabaseException(e);

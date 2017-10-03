@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 public class MessagesManager {
 
     private final static ResourceBundle resourceBundle =
-            ResourceBundle.getBundle("bussinessprocesses.resources.messages");
+            ResourceBundle.getBundle("messages");
     private MessagesManager(){
     }
 

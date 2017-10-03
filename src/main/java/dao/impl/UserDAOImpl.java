@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
         boolean findMail = false;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_CHECK_EMAIL_IN_DB);
 
             ps.setString(1, email);
@@ -67,7 +67,7 @@ public class UserDAOImpl implements UserDAO {
         User user = null;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
 
             ps = conn.prepareStatement(SQL_SELECT_USER_BY_MAIL);
             ps.setString(1, email);
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_CREATE_USER);
 
             ps.setString(1, user.getName());
@@ -125,8 +125,8 @@ public class UserDAOImpl implements UserDAO {
 
         } finally {
 
-//            ConnectionPool.close(ps);
-//            ConnectionPool.close(conn);
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
     }
 
@@ -136,7 +136,7 @@ public class UserDAOImpl implements UserDAO {
         PreparedStatement ps = null;
         ArrayList<User> allUsers = new ArrayList<>();
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_ALL_USERS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -169,7 +169,7 @@ public class UserDAOImpl implements UserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_DELETE_USER_BY_MAIL);
             ps.setString(1, email);
             ps.execute();
@@ -189,7 +189,7 @@ public class UserDAOImpl implements UserDAO {
         PreparedStatement ps = null;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE_PASSWORD);
             ps.setString(1, password);
             ps.setString(2, email);
@@ -212,7 +212,7 @@ public class UserDAOImpl implements UserDAO {
         PreparedStatement ps = null;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_USERS_BY + element + "=?");
             ps.setString(1, elementValue);
             ResultSet rs = ps.executeQuery();
@@ -252,7 +252,7 @@ public class UserDAOImpl implements UserDAO {
         UserStatus currentStatus = null;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_USER_STATUS);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
@@ -278,8 +278,8 @@ public class UserDAOImpl implements UserDAO {
             throw new DatabaseException(e);
 
         } finally {
-//            ConnectionPool.close(ps);
-//            ConnectionPool.close(conn);
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
 
     }
@@ -291,7 +291,7 @@ public class UserDAOImpl implements UserDAO {
         PreparedStatement ps = null;
 
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE_USER);
 
             ps.setString(1, user.getName());

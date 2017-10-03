@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 public class ConfigurationManager {
 
     private final static ResourceBundle resourcesBundle =
-            ResourceBundle.getBundle("resources/config.properties");
+            ResourceBundle.getBundle("config");
 
     private ConfigurationManager(){
 

@@ -19,7 +19,7 @@ public class ConnectionPool {
     static {
         try {
             Context initContext = new InitialContext();
-            Context envContext = (Context) initContext.lookup("java:/comp/env/jdbc/Online_Shop");
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup(DATASOURCE_NAME);
         }catch (NamingException e){
             e.printStackTrace();
