@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
  */
 public class UserLogicImpl implements UserLogic{
     private static final Logger logger = Logger.getLogger(UserLogicImpl.class);
-    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("config");
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("util");
     private UserDAO userDAO = new UserDAOImpl();
 
 

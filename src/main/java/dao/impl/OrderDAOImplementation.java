@@ -1,5 +1,6 @@
 package dao.impl;
 
+import dao.connectionPool.ConnectionPool;
 import dao.exception.DatabaseException;
 import dao.interfaces.OrdersDAO;
 import entity.order.Order;
@@ -38,7 +39,7 @@ public class OrderDAOImplementation implements OrdersDAO {
         PreparedStatement psCreateProductForOrder = null;
 
         try{
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             conn.setAutoCommit(false);
             psCreateIrder = conn.prepareStatement(SQL_CREATE_ODER, Statement.RETURN_GENERATED_KEYS);
 
@@ -78,7 +79,7 @@ public class OrderDAOImplementation implements OrdersDAO {
 
         ArrayList<Order> orderList = new ArrayList<>();
         try{
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_ALL_ORDERS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
@@ -106,7 +107,7 @@ public class OrderDAOImplementation implements OrdersDAO {
 
         ArrayList<Order> orderList = new ArrayList<>();
         try{
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_USER_ORDERS);
             ps.setInt(1,user_id);
             ResultSet rs = ps.executeQuery();
@@ -141,7 +142,7 @@ public class OrderDAOImplementation implements OrdersDAO {
         PreparedStatement ps = null;
 
         try{
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE_STATUS);
             ps.setString(1,status.name());
             ps.setInt(2,order_id);
@@ -164,7 +165,7 @@ public class OrderDAOImplementation implements OrdersDAO {
         PreparedStatement ps = null;
         Order order = null;
         try{
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_ORDER_BY_ID);
             ps.setInt(1,order_id);
             ResultSet rs = ps.executeQuery();
@@ -194,7 +195,7 @@ public class OrderDAOImplementation implements OrdersDAO {
         PreparedStatement ps = null;
         ArrayList<Integer> listIdProduct = new ArrayList<>();
         try {
-            conn = ConnectorDB.getConnection();
+            conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_PRODUCT_FROM_ORDER);
             ps.setInt(1,order_id);
             ResultSet rs = ps.executeQuery();

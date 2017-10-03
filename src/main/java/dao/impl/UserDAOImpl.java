@@ -86,7 +86,9 @@ public class UserDAOImpl implements UserDAO {
                 user.setStatus(UserStatus.valueOf(rs.getString(6)));
                 user.setPhone(rs.getString(7));
                 user.setRole(rs.getString(8));
-
+                return user;
+            }else {
+                throw new UserNotFoundException(email);
             }
 
         } catch (SQLException e) {
@@ -98,7 +100,7 @@ public class UserDAOImpl implements UserDAO {
             ConnectionPool.close(conn);
         }
 
-        return user;
+
     }
 
     @Override

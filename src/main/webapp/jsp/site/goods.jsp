@@ -17,9 +17,9 @@
             <form name="GoogsForm" method="POST" action="controller">
                <input type="hidden" name="command" value="goods" />
                <input type="hidden" name="show" value="" />
-               		<button type="submit" class="btn btn-default btn-xs" name="category" value="1">Printers</button>
-               		<button type="submit" class="btn btn-default btn-xs" name="category" value="2">Audio</button>
-               		<button type="submit" class="btn btn-default btn-xs" name="category" value="3">Computer hardware</button>
+               		<button type="submit" class="btn btn-default btn-xs" name="producer_id" value="1">Acer</button>
+               		<button type="submit" class="btn btn-default btn-xs" name="producer_id" value="2">Asus</button>
+               		<button type="submit" class="btn btn-default btn-xs" name="producer_id" value="3">HP</button>
             </form>
          </div>
          

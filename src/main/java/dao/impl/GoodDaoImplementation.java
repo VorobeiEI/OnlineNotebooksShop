@@ -45,7 +45,7 @@ public class GoodDaoImplementation implements ProductsDAO {
         PreparedStatement ps = null;
 
         try{
-            conn = ConnectorDB.getConnection();
+            conn = getConnection();
             ps = conn.prepareStatement(SQL_INSERT_OR_UPDATE);
 
             ps.setInt(1, good.getId());
