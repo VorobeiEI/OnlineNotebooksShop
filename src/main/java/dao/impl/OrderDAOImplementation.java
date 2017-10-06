@@ -22,7 +22,7 @@ public class OrderDAOImplementation implements OrdersDAO {
     public static final String SQL_SELECT_ALL_ORDERS = "SELECT * FROM orders GROUP BY status, id";
     public static final String SQL_SELECT_USER_ORDERS = "SELECT * FROM orders WHERE id_user = ? GROUP BY status, id";
     public static final String SQL_UPDATE_STATUS = "UPDATE orders SET status=? WHERE id=?";
-    public static final String SQL_SELECT_ORDER_BY_ID = "SELECT id, order_amount, status, date FROM orders WHERE id = ?";
+    public static final String SQL_SELECT_ORDER_BY_ID = "SELECT id, order_amount, id_user, status, date FROM orders WHERE id = ?";
     public static final String SQL_SELECT_PRODUCT_FROM_ORDER = "SELECT id_item FROM items_orders WHERE id_order = ?";
 
     private static final Logger logger = Logger.getLogger(OrderDAOImplementation.class);
@@ -68,9 +68,19 @@ public class OrderDAOImplementation implements OrdersDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        } finally {
+            if(conn != null){
+                try {
+                    conn.setAutoCommit(true);
+                }catch (SQLException e){
+                    logger.error(e.getMessage(), e);
+                }
+            }
+            ConnectionPool.close(psCreateIrder);
+            ConnectionPool.close(psCreateProductForOrder);
+            ConnectionPool.close(conn);
         }
-
-    }
+        }
 
     @Override
     public ArrayList<Order> getAllOrders() {
@@ -92,12 +102,15 @@ public class OrderDAOImplementation implements OrdersDAO {
                 orderList.add(order);
             }
 
-
+            return orderList;
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        } finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-        return orderList;
+
     }
 
     @Override
@@ -121,11 +134,14 @@ public class OrderDAOImplementation implements OrdersDAO {
                 orderList.add(order);
             }
 
+            return orderList;
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-        return orderList;
     }
 
     @Override
@@ -144,10 +160,10 @@ public class OrderDAOImplementation implements OrdersDAO {
         try{
             conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE_STATUS);
-            ps.setString(1,status.name());
+            ps.setString(1,status.toString());
             ps.setInt(2,order_id);
             ps.execute();
-            if(status.equals("CANCELED")||status.equals("CREATED")){
+            if(status.equals("PAID")){
                 logger.info("Order with id: " + order_id + " uncompleted");
             }else{
                 logger.info("Order with id: " + order_id + " completed");
@@ -155,6 +171,9 @@ public class OrderDAOImplementation implements OrdersDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
 
     }
@@ -177,7 +196,7 @@ public class OrderDAOImplementation implements OrdersDAO {
                 order.setUserId(rs.getInt(3));
                 order.setStatus(Status.valueOf(rs.getString(4)));
                 order.setDate(rs.getDate(5));
-
+                return order;
             }else {
                 throw new OrderNotFoundEException(order_id);
             }
@@ -185,8 +204,11 @@ public class OrderDAOImplementation implements OrdersDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-        return order;
+
     }
 
     @Override
@@ -200,13 +222,17 @@ public class OrderDAOImplementation implements OrdersDAO {
             ps.setInt(1,order_id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                listIdProduct.add(rs.getInt(2));
+                listIdProduct.add(rs.getInt(1));
             }
 
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
+
         return listIdProduct;
     }
 }

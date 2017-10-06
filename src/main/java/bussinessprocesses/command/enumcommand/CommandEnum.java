@@ -85,6 +85,11 @@ public enum CommandEnum {
         {
             this.command = new ForgotPasswordPageCommand();
         }
+    },
+    LANGUAGE{
+        {
+            this.command = new LanguageCommand();
+        }
     };
 
     ActionCommand command;

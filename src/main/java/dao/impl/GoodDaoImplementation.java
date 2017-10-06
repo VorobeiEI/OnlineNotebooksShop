@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 /**
  * Created by jacksparrow on 26.09.17.
  */
-public class GoodDaoImplementation implements ProductsDAO {
+public class    GoodDaoImplementation implements ProductsDAO {
     public static final String SQL_INSERT_OR_UPDATE = "INSERT INTO products (id,name, description, price, cpu,ram, memory, producer_id,qantity) VALUES (?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE qantity=qantity+?;";
     public static final String SQL_CREATE_PRODUCT = "INSERT INTO products (name, description, price, cpu," +
             "ram, memory,producer_id, qantity) values (?,?, ?, ?, ?, ?, ?,?)";
@@ -63,7 +63,11 @@ public class GoodDaoImplementation implements ProductsDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
+
     }
 
     @Override
@@ -87,8 +91,10 @@ public class GoodDaoImplementation implements ProductsDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-
     }
 
     @Override
@@ -115,11 +121,14 @@ public class GoodDaoImplementation implements ProductsDAO {
 
                 goodList.addGood(good);
             }
+            return goodList;
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-        return goodList;
     }
 
     @Override
@@ -149,6 +158,9 @@ public class GoodDaoImplementation implements ProductsDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
     }
 
@@ -180,12 +192,15 @@ public class GoodDaoImplementation implements ProductsDAO {
                 goodList.addGood(good);
 
             }
-
+            return goodList;
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-        return goodList;
+
     }
 
     @Override
@@ -203,8 +218,10 @@ public class GoodDaoImplementation implements ProductsDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
-
     }
 
     @Override
@@ -264,20 +281,22 @@ public class GoodDaoImplementation implements ProductsDAO {
         }catch (SQLException e){
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(psForProducerName);
+            ConnectionPool.close(psForSaarchProduct);
+            ConnectionPool.close(conn);
         }
 
         return goodList;
     }
 
     protected Connection getConnection(){
-        Connection connection = null;
-            try {
-                 connection =  ConnectionPool.getConnection();
+        try {
+                 return ConnectionPool.getConnection();
             }catch (SQLException e){
                 logger.error(e.getMessage(), e);
                 throw new DatabaseException(e);
             }
 
-        return connection;
     }
 }

@@ -1,0 +1,14 @@
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xmlns="http://www.example.org/products" xsi:schemaLocation="">
+	<product>
+		<id>8</id>
+		<name>Mega</name>
+		<description>Ultrathin</description>
+		<producerid>1</producerid>
+		<cpu>2.3</cpu>
+		<ram>1024</ram>
+		<memory>520</memory>
+		<price>500</price>
+		<quantity>1</quantity>
+	</product>
+</products>

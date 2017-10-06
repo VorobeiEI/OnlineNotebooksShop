@@ -15,7 +15,7 @@
          <strong>Result of search: ${noResultMessage}</strong> 
          <table class="table table-striped">
             <tbody>
-               <c:forEach items="${productList}" var="product">
+               <c:forEach items="${productList.getGoods()}" var="product">
                   <tr>
                      <td align="left">Product: ${product.name}</td>
                      <td align="left">price: ${product.price}</td>

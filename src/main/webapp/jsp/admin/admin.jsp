@@ -36,14 +36,14 @@
 	  <!-- table for view all product from data base -->
       <table class="table table-bordered">
          <tbody>
-            <c:forEach items="${productList}" var="product">
+            <c:forEach items="${productList.getGoods()}" var="product">
                <tr>
                   <td align="left">Product: ${product.name}</td>
                   <td align="left">Product_ID: ${product.id}</td>
                   <td align="left">Price: ${product.price}</td>
                   <td align="left">Quantity: ${product.quantity}</td>
                   <td align="left">Description: ${product.description}</td>
-                  <td align="left">Category: ${product.category}</td>
+                  <td align="left">ProducerId: ${product.producerId}</td>
                </tr>
             </c:forEach>
          </tbody>
@@ -64,8 +64,8 @@
                   <td>
                      <form name="OrderListForm" method="POST" action="controller">
                         <input type="hidden" name="command" value="admin" /> 
-                        <input type="hidden" name="clientID" value="${user.id}" /> 
-                        <input type="submit" id="" name="changeUserStatus" value="change" />
+                        <input type="hidden" name="email" value="${user.email}" />
+                        <input type="submit" email="" name="changeUserStatus" value="change" />
                      </form>
                   </td>
                </tr>

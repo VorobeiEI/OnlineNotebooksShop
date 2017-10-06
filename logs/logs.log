@@ -1,11 +1,21 @@
-2017-10-03 13:38:37 ERROR GoodDaoImplementation:276 - No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-	at java.sql.DriverManager.getConnection(DriverManager.java:689)
-	at java.sql.DriverManager.getConnection(DriverManager.java:247)
-	at dao.impl.ConnectorDB.getConnection(ConnectorDB.java:18)
-	at dao.impl.GoodDaoImplementation.getConnection(GoodDaoImplementation.java:274)
-	at dao.impl.GoodDaoImplementation.getProductByProducer(GoodDaoImplementation.java:162)
-	at bussinessprocesses.command.mainpages.GoodsPageCommand.execute(GoodsPageCommand.java:96)
+2017-10-05 10:55:11 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 11:07:02 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 11:09:57 INFO  OrderDAOImplementation:169 - Order with id: 2 completed
+2017-10-05 11:10:02 INFO  OrderDAOImplementation:169 - Order with id: 3 completed
+2017-10-05 11:10:17 INFO  OrderDAOImplementation:169 - Order with id: 1 completed
+2017-10-05 12:14:46 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:17:47 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:21:41 ERROR ValidatorXML:32 - validation  is not valid because Content is not allowed in prolog.
+2017-10-05 12:28:15 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:28:29 ERROR ValidatorXML:32 - validation  is not valid because Content is not allowed in prolog.
+2017-10-05 12:40:00 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:40:45 INFO  ValidatorXML:30 - /home/jacksparrow/Java/Projects/Project/src/main/resources/products.xml is valid.
+2017-10-05 12:40:45 ERROR STAXMLParser:77 - Error in reading XML 
+java.lang.IllegalArgumentException: No enum constant dao.xmlParser.ProductTagForXML.PRODYCERID
+	at java.lang.Enum.valueOf(Enum.java:238)
+	at dao.xmlParser.ProductTagForXML.valueOf(ProductTagForXML.java:6)
+	at dao.xmlParser.STAXMLParser.doParse(STAXMLParser.java:36)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:70)
 	at controller.Controller.processRequest(Controller.java:55)
 	at controller.Controller.doPost(Controller.java:33)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
@@ -13,6 +23,9 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
@@ -31,14 +44,14 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2017-10-03 13:43:46 ERROR GoodDaoImplementation:276 - No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-	at java.sql.DriverManager.getConnection(DriverManager.java:689)
-	at java.sql.DriverManager.getConnection(DriverManager.java:247)
-	at dao.impl.ConnectorDB.getConnection(ConnectorDB.java:18)
-	at dao.impl.GoodDaoImplementation.getConnection(GoodDaoImplementation.java:274)
-	at dao.impl.GoodDaoImplementation.getProductByProducer(GoodDaoImplementation.java:162)
-	at bussinessprocesses.command.mainpages.GoodsPageCommand.execute(GoodsPageCommand.java:96)
+2017-10-05 12:51:56 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:52:18 INFO  ValidatorXML:30 - /home/jacksparrow/Java/Projects/Project/src/main/resources/products.xml is valid.
+2017-10-05 12:52:19 ERROR STAXMLParser:86 - Error in reading XML 
+java.lang.IllegalArgumentException: No enum constant dao.xmlParser.ProductTagForXML.PRODUCERID
+	at java.lang.Enum.valueOf(Enum.java:238)
+	at dao.xmlParser.ProductTagForXML.valueOf(ProductTagForXML.java:6)
+	at dao.xmlParser.STAXMLParser.doParse(STAXMLParser.java:36)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:70)
 	at controller.Controller.processRequest(Controller.java:55)
 	at controller.Controller.doPost(Controller.java:33)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
@@ -46,6 +59,9 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
@@ -64,13 +80,26 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2017-10-03 14:30:27 ERROR UserDAOImpl:52 - No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/Online_Shop
-	at java.sql.DriverManager.getConnection(DriverManager.java:689)
-	at java.sql.DriverManager.getConnection(DriverManager.java:247)
-	at dao.impl.ConnectorDB.getConnection(ConnectorDB.java:18)
-	at dao.impl.UserDAOImpl.checkMail(UserDAOImpl.java:45)
-	at bussinessprocesses.command.mainpages.RegistrationPageCommand.execute(RegistrationPageCommand.java:51)
+2017-10-05 12:54:18 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 12:54:32 INFO  ValidatorXML:30 - /home/jacksparrow/Java/Projects/Project/src/main/resources/products.xml is valid.
+2017-10-05 13:00:41 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:03:54 INFO  OrderDAOImplementation:169 - Order with id: 1 completed
+2017-10-05 13:07:23 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:09:49 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:16:53 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:17:08 ERROR UserDAOImpl:281 - 
+java.sql.SQLException
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.ResultSetImpl.checkRowPos(ResultSetImpl.java:815)
+	at com.mysql.jdbc.ResultSetImpl.getStringInternal(ResultSetImpl.java:5528)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5448)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5488)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at dao.impl.UserDAOImpl.changeStatus(UserDAOImpl.java:261)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:106)
 	at controller.Controller.processRequest(Controller.java:55)
 	at controller.Controller.doPost(Controller.java:33)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
@@ -78,6 +107,9 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
@@ -96,9 +128,280 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2017-10-03 14:54:13 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-03 15:11:36 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-03 15:34:43 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-03 15:34:44 INFO  UserLogicImpl:43 - Creating default admin user
-2017-10-03 15:37:55 ERROR ValidatorXML:32 - validation  is not valid because Content is not allowed in prolog.
-2017-10-03 16:30:59 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:20:01 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:20:14 ERROR UserDAOImpl:281 - 
+java.sql.SQLException
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.ResultSetImpl.checkRowPos(ResultSetImpl.java:815)
+	at com.mysql.jdbc.ResultSetImpl.getStringInternal(ResultSetImpl.java:5528)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5448)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5488)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at dao.impl.UserDAOImpl.changeStatus(UserDAOImpl.java:261)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:106)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 13:22:07 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:22:58 ERROR UserDAOImpl:281 - 
+java.sql.SQLException
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.ResultSetImpl.checkRowPos(ResultSetImpl.java:815)
+	at com.mysql.jdbc.ResultSetImpl.getStringInternal(ResultSetImpl.java:5528)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5448)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5488)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingResultSet.getString(DelegatingResultSet.java:266)
+	at dao.impl.UserDAOImpl.changeStatus(UserDAOImpl.java:261)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:106)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 13:24:04 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:58:21 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 13:58:34 INFO  UserDAOImpl:271 - Account with email drfauct@ukr.net blocked
+2017-10-05 14:43:44 INFO  UserDAOImpl:275 - Account with email drfauct@ukr.net activate
+2017-10-05 14:47:45 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 14:53:25 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:02:17 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:05:14 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:07:42 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:21:34 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:23:39 INFO  TransactionalGoodImplementation:39 - org.apache.tomcat.dbcp.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@c1a7f66 - this transaction rollback
+2017-10-05 15:25:21 INFO  OrderDAOImplementation:169 - Order with id: 4 completed
+2017-10-05 15:41:50 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 15:43:08 ERROR OrderDAOImplementation:172 - Data truncated for column 'status' at row 1
+java.sql.SQLException: Data truncated for column 'status' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:995)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at dao.impl.OrderDAOImplementation.orderComlete(OrderDAOImplementation.java:165)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:122)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 15:43:21 ERROR OrderDAOImplementation:172 - Data truncated for column 'status' at row 1
+java.sql.SQLException: Data truncated for column 'status' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:995)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at dao.impl.OrderDAOImplementation.orderComlete(OrderDAOImplementation.java:165)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:122)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 16:04:23 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 16:04:44 ERROR OrderDAOImplementation:172 - Data truncated for column 'status' at row 1
+java.sql.SQLException: Data truncated for column 'status' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:995)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at dao.impl.OrderDAOImplementation.orderComlete(OrderDAOImplementation.java:165)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:122)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 16:07:47 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 16:08:01 ERROR OrderDAOImplementation:172 - Data truncated for column 'status' at row 1
+java.sql.SQLException: Data truncated for column 'status' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:995)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at dao.impl.OrderDAOImplementation.orderComlete(OrderDAOImplementation.java:165)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:122)
+	at controller.Controller.processRequest(Controller.java:55)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:24)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-05 16:12:26 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 16:12:53 INFO  OrderDAOImplementation:169 - Order with id: 1 completed
+2017-10-05 16:13:07 INFO  OrderDAOImplementation:169 - Order with id: 2 completed
+2017-10-05 16:41:39 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 16:50:07 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-05 16:55:57 INFO  UserLogicImpl:39 - Checking inital users setup

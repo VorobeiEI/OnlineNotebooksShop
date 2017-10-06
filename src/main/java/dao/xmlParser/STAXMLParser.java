@@ -59,14 +59,23 @@ public class STAXMLParser {
                             case DESCRIPTION:
                                 product.setDescription(tagContent);
                                 break;
+                            case PRODUCERID:
+                                product.setProducerId(Integer.parseInt(tagContent));
+                                break;
+                            case CPU:
+                                product.setCpu(Double.parseDouble(tagContent));
+                                break;
+                            case RAM:
+                                product.setRam(Integer.parseInt(tagContent));
+                                break;
+                            case MEMORY:
+                                product.setMemory(Double.parseDouble(tagContent));
+                                break;
                             case PRICE:
                                 product.setPrice(Double.parseDouble(tagContent));
                                 break;
                             case QUANTITY:
                                 product.setQuantity(Integer.parseInt(tagContent));
-                                break;
-                            case CATEGORY:
-                                product.setProducerId(Integer.parseInt(tagContent));
                                 break;
                             default:
                                 break;

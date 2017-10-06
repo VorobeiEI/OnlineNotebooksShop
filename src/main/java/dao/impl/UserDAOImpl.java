@@ -252,7 +252,6 @@ public class UserDAOImpl implements UserDAO {
         Connection conn = null;
         PreparedStatement ps = null;
         UserStatus currentStatus = null;
-
         try {
             conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_SELECT_USER_STATUS);
@@ -263,7 +262,7 @@ public class UserDAOImpl implements UserDAO {
             }
             ps.close();
             ps = conn.prepareStatement(SQL_UPDATE_STATUS);
-            if (currentStatus.equals(UserStatus.STATUS_OK)) {
+                if (currentStatus.equals(UserStatus.STATUS_OK)) {
                 ps.setString(1, UserStatus.STATUS_BLOCKED.name());
                 ps.setString(2, email);
                 ps.execute();
@@ -277,6 +276,7 @@ public class UserDAOImpl implements UserDAO {
 
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
+            e.printStackTrace();
             throw new DatabaseException(e);
 
         } finally {

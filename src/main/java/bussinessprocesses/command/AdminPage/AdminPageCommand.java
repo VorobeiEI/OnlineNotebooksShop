@@ -119,7 +119,7 @@ public class AdminPageCommand implements ActionCommand {
 
         //change status of order to complete
         if(request.getParameter(PARAM_COMPLETE) !=null) {
-            ordersDAO.orderComlete(Integer.valueOf(orderID), Status.PAID);
+            ordersDAO.orderComlete(Integer.valueOf(orderID), Status.COMPLETED);
             request.setAttribute("orderCompleteMessage", MessagesManager.getProperty("message.ordercomplete"));
             page = ConfigurationManager.getProperty("path.page.admin");
         }

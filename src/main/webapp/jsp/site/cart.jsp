@@ -31,7 +31,7 @@
 					<td>
 					<form name="cartListForm" method="POST" action="controller">
 						<input type="hidden" name="command" value="cart" /> 
-						<input type="hidden" name="product" value="${product.id}" /> 
+						<input type="hidden" name="product" value="${product.id}" />
 						<input type="submit" id="" name="remove" value="remove" />
 					</form>
 				</tr>

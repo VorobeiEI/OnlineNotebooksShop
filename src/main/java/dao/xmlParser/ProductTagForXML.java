@@ -9,9 +9,13 @@ public enum ProductTagForXML {
     ID("id"),
     NAME("name"),
     DESCRIPTION("description"),
+    PRODUCERID("producerid"),
+    CPU("cpu"),
+    RAM("ram"),
+    MEMORY("memory"),
     PRICE("price"),
-    QUANTITY("quantity"),
-    CATEGORY("category");
+    QUANTITY("quantity");
+
 
     private String value;
 

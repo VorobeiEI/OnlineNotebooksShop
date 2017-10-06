@@ -19,7 +19,7 @@ import java.util.Comparator;
 public class GoodsPageCommand implements ActionCommand {
     private static final String PARAM_SHOW_PRODUCTS = "show";
     private static final String PARAM_PRODUCT_ID = "product";
-    private static final String PARAM_PROD_CATEGORY = "category";
+    private static final String PARAM_PROD_CATEGORY = "producer_id";
     private static final String PARAM_ADD_PRODUCT = "add";
     private static final String PARAM_CART = "cart";
     private static final String PARAM_SORT_BY_NAME = "sortByName";
@@ -93,7 +93,7 @@ public class GoodsPageCommand implements ActionCommand {
 
             //set standard amount of product on web page
             int maxProductsOnPage = 25;
-            GoodList allProducts = pmd.getProductByProducer(Integer.valueOf(categoryProd));
+            GoodList allProducts = pmd.getProductByProducer(Integer.parseInt(categoryProd));
             if(maxProductsOnPage > allProducts.getSize()) {
                 maxProductsOnPage = allProducts.getSize();
             }

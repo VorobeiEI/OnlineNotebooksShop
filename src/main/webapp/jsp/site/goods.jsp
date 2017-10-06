@@ -14,7 +14,7 @@
       <div class="container">
          <br />
          <div class="goods-forms text-center">
-            <form name="GoogsForm" method="POST" action="controller">
+            <form name="GoodsForm" method="GET" action="controller">
                <input type="hidden" name="command" value="goods" />
                <input type="hidden" name="show" value="" />
                		<button type="submit" class="btn btn-default btn-xs" name="producer_id" value="1">Acer</button>
@@ -28,7 +28,7 @@
                <p class="text-error">${ErrorNotInStockMessage}</p>
                <p class="text-info">${ErrorUserNotLogin}</p>
          <c:if test = "${productCategList != null}">
-            <form name="GoogsForm" method="POST" action="controller">
+            <form name="GoodsForm" method="POST" action="controller">
             	Sort by:
            		<input type="hidden" name="command" value="goods" />
                 <input type="submit" id="" name="sortByName" value="name" />
@@ -49,7 +49,7 @@
          
          <table class="table table-striped">
             <tbody>
-               <c:forEach items="${productCategList.getProducts()}" var="product">
+               <c:forEach items="${productCategList.getGoods()}" var="product">
                   <tr>
                      <td align="left">Product: ${product.name}</td>
                      <td align="left">price: ${product.price}</td>
@@ -59,7 +59,7 @@
                         <form name="ProductListForm" method="POST" action="controller">
                            <input type="hidden" name="command" value="goods" /> 
                            <input type="hidden" name="product" value="${product.id}" /> 
-                           <input type="submit" id="" name="add" value="add to cart" />
+                           <input type="submit" id=" " name="add" value="add to cart" />
                         </form>
                      </td>
                   </tr>

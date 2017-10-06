@@ -50,7 +50,7 @@ public class Order {
                 prodacts.add(idProdacts);
     }
 
-    public void removeProducts(String idProdacts) {
+    public void removeProducts(Integer idProdacts) {
         prodacts.remove(idProdacts);
     }
 

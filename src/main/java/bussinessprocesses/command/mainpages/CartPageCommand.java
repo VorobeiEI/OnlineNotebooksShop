@@ -55,9 +55,10 @@ public class CartPageCommand implements ActionCommand {
 
         // delete the selected item from the cart
         if (request.getParameter(PARAM_REMOVE_FROM_CART) != null) {
+
             GoodList cartProduct = new GoodList();
             Order order = (Order) request.getSession().getAttribute("order");
-            order.removeProducts(productID);
+            order.removeProducts(Integer.parseInt(productID));
 
             double orderAmount = 0;
             for (Integer idProduct : order.getProdacts()) {

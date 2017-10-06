@@ -14,7 +14,7 @@ public class NotNullFunction {
         return res;
     }
 
-    public static String notNullOrderAmount (Object ob){
+    public static String notNullorderAmount (Object ob){
         String res = null;
         if(ob == null || ob.toString().isEmpty()){
             res = null;
