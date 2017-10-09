@@ -72,7 +72,6 @@ public class AdminPageCommand implements ActionCommand {
                     productsDAO.insertOrUpdateProduct(product);
                 }
             } catch (CannotReadXMLException e) {
-                System.out.println("ss");
                 request.setAttribute("errorParseXMLMessage", MessagesManager.getProperty("message.readxmlerror"));
                 return page = ConfigurationManager.getProperty("path.page.admin");
 

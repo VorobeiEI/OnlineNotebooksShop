@@ -8,7 +8,7 @@
 	
    <body>
       <div class="container">
-         <form class="form-callback" name="loginForm" method="POST" action="controller">
+         <form class="form-callback" name="loginForm" method="GET" action="controller">
             <input type="hidden" name="command" value="mail" />
             <h2 class="form-loginReg-heading">Feedback Form</h2>
             Subject:

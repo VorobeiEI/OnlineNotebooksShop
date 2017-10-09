@@ -19,7 +19,7 @@
          <h1>Contacts</h1>
          <div class="container_contacts">
             <div class="map_contacts">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2349.2121905434556!2d27.598818400000003!3d53.927974000000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8afd5f1d%3A0x46a70858b45abfab!2z0YPQuy4g0KfQtdGA0L3Ri9GI0LXQstGB0LrQvtCz0L4gMTIsINCc0LjQvdGB0LosINCR0LXQu9Cw0YDRg9GB0Yw!5e0!3m2!1sru!2sua!4v1420492682498" width="600" height="450" style="border:0"></iframe>
+               <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCAGrYFUWYX_ubQQ1_p1iX0m_l9CM3PUCs&q=ZhK+Yunost,Kyivs'ka+oblast+Ukraine" width="600" height="450" style="border:0"></iframe>
             </div>
             <div class="clear"></div>
          </div>

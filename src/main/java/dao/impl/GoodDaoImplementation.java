@@ -19,7 +19,7 @@ public class    GoodDaoImplementation implements ProductsDAO {
     public static final String SQL_INSERT_OR_UPDATE = "INSERT INTO products (id,name, description, price, cpu,ram, memory, producer_id,qantity) VALUES (?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE qantity=qantity+?;";
     public static final String SQL_CREATE_PRODUCT = "INSERT INTO products (name, description, price, cpu," +
             "ram, memory,producer_id, qantity) values (?,?, ?, ?, ?, ?, ?,?)";
-    public static final String SQL_SELECT_ALL_PRODUCTS = "SELECT * FROM products";
+    public static final String SQL_SELECT_ALL_PRODUCTS = "SELECT * FROM products INNER JOIN producers ON products.producer_id = id_producer";
 
     public static final String SQL_SELECT_PRODUCT_BY_Producer = "SELECT * FROM products WHERE producer_id = ?";
 
@@ -111,7 +111,7 @@ public class    GoodDaoImplementation implements ProductsDAO {
                 Good good = new Good();
                 good.setId(resultSet.getInt(1));
                 good.setName(resultSet.getString(2));
-                good.setDescription(resultSet.getString(3));
+                good.setDescription(resultSet.getString(11));
                 good.setPrice(resultSet.getDouble(4));
                 good.setCpu(resultSet.getDouble(5));
                 good.setRam(resultSet.getInt(6));

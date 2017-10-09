@@ -16,7 +16,7 @@
 					<strong>${companyName}</strong>
 					<br> ${companyStreet}
 					<br> ${companyCity}
-					<br> <abbr title="${companyPhone}">P:</abbr> (029) 029-2929
+					<br> <abbr title="${companyPhone}">P:</abbr> (093) 774-5975
 				</address>
 			</div>
 			<div class="col-sm-6 text-right">

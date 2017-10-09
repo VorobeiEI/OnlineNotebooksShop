@@ -132,7 +132,7 @@ id_Item</ColNames>
     </column>
     <column id="40" parent="13" name="status">
       <Position>4</Position>
-      <DataType>enum(&apos;CREATED&apos;, &apos;PAID&apos;, &apos;CANCELED&apos;)|0</DataType>
+      <DataType>enum(&apos;PAID&apos;, &apos;COMPLETED&apos;)|0</DataType>
     </column>
     <index id="41" parent="13" name="id_user_idx">
       <ColNames>id_user</ColNames>

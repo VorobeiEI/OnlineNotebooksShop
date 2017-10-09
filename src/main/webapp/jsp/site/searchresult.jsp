@@ -22,7 +22,7 @@
                      <td align="left">quantity: ${product.quantity}</td>
                      <td align="left">description: ${product.description}</td>
                      <td>
-                        <form name="ProductListForm" method="POST" action="controller">
+                        <form name="ProductListForm" method="GET" action="controller">
                            <input type="hidden" name="command" value="goods" /> 
                            <input type="hidden" name="product" value="${product.id}" /> 
                            <input type="submit" id="" name="add" value="add to cart" />

@@ -52,9 +52,12 @@
                <c:forEach items="${productCategList.getGoods()}" var="product">
                   <tr>
                      <td align="left">Product: ${product.name}</td>
-                     <td align="left">price: ${product.price}</td>
-                     <td align="left">quantity: ${product.quantity}</td>
+                     <td align="left">CPU: ${product.cpu}</td>
+                     <td align="left">RAM: ${product.ram}</td>
+                     <td align="left">Memory: ${product.memory}</td>
                      <td align="left">description: ${product.description}</td>
+                      <td align="left">quantity: ${product.quantity}</td>
+                      <td align="left">price: ${product.price}</td>
                      <td>
                         <form name="ProductListForm" method="POST" action="controller">
                            <input type="hidden" name="command" value="goods" /> 

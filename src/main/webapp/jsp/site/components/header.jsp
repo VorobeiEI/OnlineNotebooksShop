@@ -10,15 +10,15 @@
     <div class="container" >
 
         <div class="pull-right">
-            <form name="headerForm" method="POST" action="controller">
+            <form name="headerForm" method="GET" action="controller">
                 <input type="hidden" name="command" value="language" />
-                <button type="submit" class="btn btn-mini" name="ru_RU">ru</button>
-                <button type="submit" class="btn btn-mini" name="en_US">en</button>
+                <button type="submit" class="btn btn-mini" name="ru">ru</button>
+                <button type="submit" class="btn btn-mini" name="en">en</button>
             </form>
         </div>
         <br>
 
-        <form name="headerForm" method="POST" action="controller">
+        <form name="headerForm" method="GET" action="controller">
             <input type="hidden" name="command" value="header" />
             <div class="navbar-header">
                 <a href="index.jsp"><img border="0" title="" alt="" src="image/logo.png"></a>
