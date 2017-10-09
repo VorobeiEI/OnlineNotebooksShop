@@ -111,7 +111,8 @@ public class    GoodDaoImplementation implements ProductsDAO {
                 Good good = new Good();
                 good.setId(resultSet.getInt(1));
                 good.setName(resultSet.getString(2));
-                good.setDescription(resultSet.getString(11));
+                good.setDescription(resultSet.getString(11)+
+                        ". Description: "+resultSet.getString(3));
                 good.setPrice(resultSet.getDouble(4));
                 good.setCpu(resultSet.getDouble(5));
                 good.setRam(resultSet.getInt(6));
