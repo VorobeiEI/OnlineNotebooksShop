@@ -21,7 +21,7 @@
 			</div>
 			<div class="col-sm-6 text-right">
 				<div class="form-search">
-				<form name="ProductListForm" method="POST" action="controller">
+				<form name="ProductListForm" method="GET" action="controller">
 					<input type="hidden" name="command" value="footer" />
 					<fmt:message key="button.search" bundle="${ rb }" var="buttonSearch" />
 					<fmt:message key="placeholder.search" bundle="${ rb }" var="Search" />

@@ -15,6 +15,7 @@ import entity.users.UserStatus;
 import entity.users.UserType;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by jacksparrow on 02.10.17.
@@ -27,7 +28,7 @@ public class RegistrationPageCommand implements ActionCommand {
     private static final String PARAM_NAME_PHONE = "phone";
     private VerificationImpl varification = new VerificationImpl();
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest request) throws UnsupportedEncodingException {
         PasswordGenerator generator = new PasswordGeneratorImpl();
         UserDAO userManagementDAO = new UserDAOImpl();
         UserLogic userManagementBP = new UserLogicImpl();

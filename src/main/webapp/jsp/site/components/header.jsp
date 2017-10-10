@@ -10,7 +10,7 @@
     <div class="container" >
 
         <div class="pull-right">
-            <form name="headerForm" method="GET" action="controller">
+            <form name="headerForm" method="POST" action="controller">
                 <input type="hidden" name="command" value="language" />
                 <button type="submit" class="btn btn-mini" name="ru">ru</button>
                 <button type="submit" class="btn btn-mini" name="en">en</button>

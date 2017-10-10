@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <html>
     <head>
    		<link href="css/bootstrap.css" rel="stylesheet">
@@ -8,7 +8,7 @@
 	
   <body>
     <div class="container">
-      <form class="form-loginReg" name="loginForm" method="GET" action="controller">
+      <form class="form-loginReg" name="loginForm" method="POST" action="controller">
       <input type="hidden" name="command" value="registration" />
         <h2 class="form-loginReg-heading">ABOUT YOU</h2>
 		<input type="text" name="email" class="input-block-level" placeholder="Email address">

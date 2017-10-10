@@ -30,9 +30,9 @@ public class CabinetPageCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        OrdersDAO omd = new OrderDAOImplementation();
-        UserDAO umd = new UserDAOImpl();
-        ProductsDAO pmd = new GoodDaoImplementation();
+        OrdersDAO ordersDAO = new OrderDAOImplementation();
+        UserDAO userDAO = new UserDAOImpl();
+        ProductsDAO productsDAO = new GoodDaoImplementation();
         String page = null;
         User user;
 
@@ -41,15 +41,15 @@ public class CabinetPageCommand implements ActionCommand {
         //show user's orders
         if(request.getParameter(PARAM_USER_ORDER) != null) {
             String email = (String) request.getSession().getAttribute("user");
-            user = umd.getUserByEmail(email);
-            request.setAttribute("userOderList", omd.getAllUsersOrders(user.getId()));
+            user = userDAO.getUserByEmail(email);
+            request.setAttribute("userOderList", ordersDAO.getAllUsersOrders(user.getId()));
             return ConfigurationManager.getProperty("path.page.cabinet");
         }
 
         //show info about user
         if(request.getParameter(PARAM_USER_INFO) != null) {
             String email = (String) request.getSession().getAttribute("user");
-            user = umd.getUserByEmail(email);
+            user = userDAO.getUserByEmail(email);
             List<User> users = new LinkedList<>();
             users.add(user);
             request.setAttribute("userInfo", users);
@@ -62,12 +62,12 @@ public class CabinetPageCommand implements ActionCommand {
             ArrayList<Integer> productIdList;
             ArrayList<Good> productList = new ArrayList<>();
             //view only one selected order on web page
-            userOrder.add(omd.getOrderById(Integer.valueOf(orderId)));
+            userOrder.add(ordersDAO.getOrderById(Integer.valueOf(orderId)));
             request.setAttribute("userOderList", userOrder);
             //view list of product from selected order
-            productIdList = omd.getAllProductFromOrder(Integer.valueOf(orderId));
+            productIdList = ordersDAO.getAllProductFromOrder(Integer.valueOf(orderId));
             for(Integer p : productIdList) {
-                productList.add(pmd.getPoductById(p));
+                productList.add(productsDAO.getPoductById(p));
             }
             request.setAttribute("productInOrder", productList);;
             return ConfigurationManager.getProperty("path.page.cabinet");
@@ -80,7 +80,7 @@ public class CabinetPageCommand implements ActionCommand {
 
         //redirect to edit profile page
         if(request.getParameter(PARAM_EDIT_PROFILE) != null) {
-            User currentUser = umd.getUserByEmail(String.valueOf(request.getSession().getAttribute("user")));
+            User currentUser = userDAO.getUserByEmail(String.valueOf(request.getSession().getAttribute("user")));
             request.getSession().setAttribute("userName", currentUser.getName());
             request.getSession().setAttribute("userPhone", currentUser.getPhone());
             return ConfigurationManager.getProperty("path.page.editprofile");

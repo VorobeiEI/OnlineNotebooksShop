@@ -30,7 +30,7 @@ public class AdminPageCommand implements ActionCommand {
     private static final String PARAM_PARSE_XML = "create";
     private static final String PARAM_SHOW_PRODUCTS = "showProducts";
     private static final String PARAM_SHOW_CUSTOMERS = "showCustomers";
-    private static final String PARAM_SHOW_ORDERS = "showOders";
+    private static final String PARAM_SHOW_ORDERS = "showOrders";
     private static final String PARAM_CLIENT_Email = "email";
     private static final String PARAM_CHANGE_USER_STATUS = "changeUserStatus";
     private static final String PARAM_ORDERID = "orderID";

@@ -41,6 +41,7 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request,
                                 HttpServletResponse response) throws ServletException, IOException {
+
         String page = null;
         HttpSession session = request.getSession(true);
         session.setMaxInactiveInterval(3000);

@@ -1,2 +1,22 @@
-2017-10-09 17:34:24 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-09 17:40:40 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 09:12:01 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 09:18:19 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 09:22:09 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 09:26:12 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 09:46:49 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 10:11:54 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 10:17:56 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 10:28:07 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 10:46:01 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 11:26:02 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 11:27:36 INFO  UserDAOImpl:305 - Information about user: User{id=36, name='Привет', creationDate=Tue Oct 10 00:00:00 EEST 2017, email='vorobeiei@gmafil.com', passwordHash='-1146580944', phone='0937745978', role='CLIENT', status=STATUS_OK} updated
+2017-10-10 11:27:55 INFO  UserDAOImpl:305 - Information about user: User{id=36, name='Jack', creationDate=Tue Oct 10 00:00:00 EEST 2017, email='vorobeiei@gmafil.com', passwordHash='-1146580944', phone='0937745978', role='CLIENT', status=STATUS_OK} updated
+2017-10-10 12:01:47 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 14:44:03 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 14:56:53 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:00:53 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:11:43 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:16:34 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:18:30 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:31:51 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:33:24 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-10 15:38:03 INFO  UserLogicImpl:39 - Checking inital users setup

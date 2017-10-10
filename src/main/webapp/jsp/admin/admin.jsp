@@ -29,7 +29,7 @@
          <br /> 
          <input type="submit" name ="showProducts" value="show Products" />
          <input type="submit" name ="showCustomers" value="show Customers" />
-         <input type="submit" name ="showOders" value="show Oders" />
+         <input type="submit" name ="showOrders" value="show Oders" />
 
       </form>
 	  
