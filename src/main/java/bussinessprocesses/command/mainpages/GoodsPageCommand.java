@@ -66,7 +66,7 @@ public class GoodsPageCommand implements ActionCommand {
         if(request.getParameter(PARAM_VIEW_AMOUNT_PRODUCT) != null){
             GoodList newProductsList = new GoodList();
             String currentCategoryProd = (String) request.getSession().getAttribute("currentCategoryProduct");
-            GoodList allProducts = pmd.getProductByProducer(Integer.valueOf(currentCategoryProd));
+            GoodList allProducts = pmd.getProductByProducerWithPagination(Integer.valueOf(currentCategoryProd));
             int maxProduct = Integer.valueOf(viewAmountProduct);
             if(maxProduct > allProducts.getSize()) {
                 maxProduct = allProducts.getSize();
@@ -93,7 +93,7 @@ public class GoodsPageCommand implements ActionCommand {
 
             //set standard amount of product on web page
             int maxProductsOnPage = 25;
-            GoodList allProducts = pmd.getProductByProducer(Integer.parseInt(categoryProd));
+            GoodList allProducts = pmd.getProductByProducerWithPagination(Integer.parseInt(categoryProd));
             if(maxProductsOnPage > allProducts.getSize()) {
                 maxProductsOnPage = allProducts.getSize();
             }

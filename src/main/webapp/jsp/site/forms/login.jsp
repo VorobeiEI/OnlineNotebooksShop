@@ -10,7 +10,7 @@
 	
    <body>
       <div class="container">
-         <form class="form-loginReg" name="loginForm" method="GET" action="controller">
+         <form class="form-loginReg" name="loginForm" method="POST" action="controller">
             <input type="hidden" name="command" value="login" />
             <h2 class="form-loginReg-heading">Please sign in</h2>
             <input type="text" name="email" class="input-block-level" placeholder="Email address">

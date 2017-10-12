@@ -22,6 +22,7 @@ public class    GoodDaoImplementation implements ProductsDAO {
     public static final String SQL_SELECT_ALL_PRODUCTS = "SELECT * FROM products INNER JOIN producers ON products.producer_id = id_producer";
 
     public static final String SQL_SELECT_PRODUCT_BY_Producer = "SELECT * FROM products WHERE producer_id = ?";
+    public static final String SQL_SELECT_PRODUCT_BY_Producer_With_Pagination = "SELECT * FROM products WHERE producer_id = ? LIMIT ?";
 
     public static final String SQL_UPDATE_QUANTITY = "UPDATE products SET qantity=? WHERE id=?";
 
@@ -176,6 +177,47 @@ public class    GoodDaoImplementation implements ProductsDAO {
             conn = getConnection();
             ps = conn.prepareStatement(SQL_SELECT_PRODUCT_BY_Producer);
             ps.setInt(1, producerId);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()){
+                Good good = new Good();
+                good.setId(resultSet.getInt(1));
+                good.setName(resultSet.getString(2));
+                good.setDescription(resultSet.getString(3));
+                good.setPrice(resultSet.getDouble(4));
+                good.setCpu(resultSet.getDouble(5));
+                good.setRam(resultSet.getInt(6));
+                good.setMemory(resultSet.getDouble(7));
+                good.setProducerId(resultSet.getInt(8));
+                good.setQuantity(resultSet.getInt(9));
+
+                goodList.addGood(good);
+
+            }
+            return goodList;
+        }catch (SQLException e){
+            logger.error(e.getMessage(), e);
+            throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
+        }
+
+    }
+
+    @Override
+    public GoodList getProductByProducerWithPagination(int producerId) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        GoodList goodList = new GoodList();
+
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(SQL_SELECT_PRODUCT_BY_Producer_With_Pagination);
+            ps.setInt(1, producerId);
+            ps.setInt(2,5);
+
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()){

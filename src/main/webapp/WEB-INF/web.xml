@@ -32,12 +32,12 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
-    <jsp-config>
+    <!--<jsp-config>
         <taglib>
             <taglib-uri>mytag</taglib-uri>
             <taglib-location>/WEB-INF/tld/mytag.tld</taglib-location>
         </taglib>
-    </jsp-config>
+    </jsp-config>-->
 
     <filter>
 

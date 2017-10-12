@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>-->
 <%@ taglib prefix="ctg" uri="mytag" %>
 <html>
 
@@ -16,7 +16,7 @@
         <h2 class="form-loginReg-heading">EDIT PROFILE</h2>
         <p class="text-error">${errorPasswordNotCorrect}</p>
         <p class="text-error">${wrongAction}</p>
-		<p class="text-error">${nullPage}</p> 
+		<p class="text-error">${nullPage}</p>
 		<br />
         Name <input type="text" name="name" class="input-block-level" placeholder="${userName}">
         Email <input type="text" name="email" class="input-block-level" placeholder="${user}">

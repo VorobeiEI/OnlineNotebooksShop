@@ -1,9 +1,18 @@
 package controller.tag;
 
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
+
 /**
  * Created by jacksparrow on 30.09.17.
  */
-public class NotNullFunction {
+public class NotNullFunction extends TagSupport{
+    @Override
+    public int doStartTag() throws JspException {
+
+        return SKIP_BODY;
+    }
+
     public static String notNull(Object ob){
         String res = null;
         if(ob == null || ob.toString().isEmpty()){

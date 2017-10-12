@@ -1,22 +1,122 @@
-2017-10-10 09:12:01 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 09:18:19 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 09:22:09 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 09:26:12 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 09:46:49 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 10:11:54 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 10:17:56 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 10:28:07 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 10:46:01 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 11:26:02 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 11:27:36 INFO  UserDAOImpl:305 - Information about user: User{id=36, name='Привет', creationDate=Tue Oct 10 00:00:00 EEST 2017, email='vorobeiei@gmafil.com', passwordHash='-1146580944', phone='0937745978', role='CLIENT', status=STATUS_OK} updated
-2017-10-10 11:27:55 INFO  UserDAOImpl:305 - Information about user: User{id=36, name='Jack', creationDate=Tue Oct 10 00:00:00 EEST 2017, email='vorobeiei@gmafil.com', passwordHash='-1146580944', phone='0937745978', role='CLIENT', status=STATUS_OK} updated
-2017-10-10 12:01:47 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 14:44:03 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 14:56:53 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:00:53 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:11:43 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:16:34 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:18:30 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:31:51 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:33:24 INFO  UserLogicImpl:39 - Checking inital users setup
-2017-10-10 15:38:03 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 13:28:44 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 13:29:02 ERROR ValidatorXML:32 - validation  is not valid because Content is not allowed in prolog.
+2017-10-11 13:29:37 INFO  ValidatorXML:30 - /home/jacksparrow/Java/Projects/Project/src/main/resources/products.xml is valid.
+2017-10-11 13:29:37 ERROR GoodDaoImplementation:64 - Incorrect string value: '\xD0\xA2\xD0\xB5\xD1\x81...' for column 'description' at row 1
+java.sql.SQLException: Incorrect string value: '\xD0\xA2\xD0\xB5\xD1\x81...' for column 'description' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:995)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:197)
+	at dao.impl.GoodDaoImplementation.insertOrUpdateProduct(GoodDaoImplementation.java:61)
+	at bussinessprocesses.command.AdminPage.AdminPageCommand.execute(AdminPageCommand.java:72)
+	at controller.Controller.processRequest(Controller.java:56)
+	at controller.Controller.doPost(Controller.java:33)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-11 13:30:06 INFO  ValidatorXML:30 - /home/jacksparrow/Java/Projects/Project/src/main/resources/products.xml is valid.
+2017-10-11 14:28:13 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 14:36:05 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 14:57:20 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 15:02:56 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 15:06:31 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 15:21:46 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 15:31:46 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 15:33:16 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:06:41 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:09:34 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:11:42 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:15:54 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:18:51 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:21:12 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 16:21:15 ERROR GoodDaoImplementation:198 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OFSET 10' at line 1
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OFSET 10' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1936)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2060)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2542)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1734)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1885)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:82)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:82)
+	at dao.impl.GoodDaoImplementation.getProductByProducer(GoodDaoImplementation.java:179)
+	at bussinessprocesses.command.mainpages.GoodsPageCommand.execute(GoodsPageCommand.java:98)
+	at controller.Controller.processRequest(Controller.java:56)
+	at controller.Controller.doGet(Controller.java:28)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at controller.filter.EncodingFilter.doFilter(EncodingFilter.java:30)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1533)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1489)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017-10-11 16:23:01 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 17:53:21 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 17:55:41 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 17:58:21 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 18:57:57 INFO  UserLogicImpl:39 - Checking inital users setup
+2017-10-11 19:05:04 INFO  UserLogicImpl:39 - Checking inital users setup

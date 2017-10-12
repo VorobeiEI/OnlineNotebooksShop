@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <taglib version="2.0"
-        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns="http://java.sun.com/xml/ns/j2ee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_0.xsd">
     <tlib-version>1.0</tlib-version>
-    <short-name>mtg</short-name>
-    <uri>mytags</uri>
+    <short-name>ctg</short-name>
+    <uri>mytag</uri>
 
     <function>
         <name>notnull</name>
@@ -29,19 +29,7 @@
         <function-signature>String statusOrder(java.lang.Object)
         </function-signature>
     </function>
-    <function>
-        <name>emailwriter</name>
-        <function-class>controller.tag.MailExecute
-        </function-class>
-        <function-signature>void writeMail(java.lang.Object)
-        </function-signature>
-    </function>
-    <tag>
-        <name>printTable</name>
-        <function-class>controller.tag.TableInfo
-        </function-class>
-        <function-signature>int statusOrder(java.lang.Object)
-        </function-signature>
-    </tag>
+
+
 
 </taglib>

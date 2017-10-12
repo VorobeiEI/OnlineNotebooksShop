@@ -28,4 +28,6 @@ public interface ProductsDAO {
 
     public GoodList resultSearchByRequest (String searchRequest);
 
-}
+    public GoodList getProductByProducerWithPagination(int producerId);
+
+    }

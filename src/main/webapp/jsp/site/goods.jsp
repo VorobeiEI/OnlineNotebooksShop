@@ -33,7 +33,8 @@
            		<input type="hidden" name="command" value="goods" />
                 <input type="submit" id="" name="sortByName" value="name" />
                 <input type="submit" id="" name="sortByPrice" value="price" />
-                ${amountofproducts} products found | 
+
+                ${amountofproducts} products found |
                 <c:choose>
 				    <c:when test="${productCategList.getSize() == 20 }">
 				        <a href="controller?command=goods&view=40">View 40 per page</a>
@@ -46,7 +47,9 @@
 				</c:choose>
             </form>
          </c:if>
-         
+          Go to:
+          <input type="submit" id="" name="nextPage" value="next" />
+          <input type="submit" id="" name="prevPage" value="previous" />
          <table class="table table-striped">
             <tbody>
                <c:forEach items="${productCategList.getGoods()}" var="product">
