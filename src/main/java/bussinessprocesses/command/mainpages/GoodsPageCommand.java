@@ -17,17 +17,21 @@ import java.util.Comparator;
  * Created by jacksparrow on 02.10.17.
  */
 public class GoodsPageCommand implements ActionCommand {
-    private static final String PARAM_SHOW_PRODUCTS = "show";
+    private static final String PARAM_SHOW_PRODUCTS_BY_PRODUCER = "show";
+    private static final String CURRENTPRODUCER = "currentProducer";
     private static final String PARAM_PRODUCT_ID = "product";
     private static final String PARAM_PROD_CATEGORY = "producer_id";
     private static final String PARAM_ADD_PRODUCT = "add";
     private static final String PARAM_CART = "cart";
     private static final String PARAM_SORT_BY_NAME = "sortByName";
     private static final String PARAM_SORT_BY_PRICE = "sortByPrice";
-    private static final String PARAM_VIEW_AMOUNT_PRODUCT = "view";
+    private static final String PARAM_VIEW_NEXT = "nextPage";
+    private static final String PARAM_VIEW_PREVIOUS = "prevPage";
 
+    private static int beginIndex = 0;
+    private static final int AMOUNTTOSHOW = 5;
 
-    public static final class SortedByName  implements Comparator<Good> {
+    public static final class SortedByName implements Comparator<Good> {
         @Override
         public int compare(Good product1, Good product2) {
             String str1 = product1.getName();
@@ -36,23 +40,24 @@ public class GoodsPageCommand implements ActionCommand {
         }
     }
 
-    public static final class SortedByPrice  implements Comparator<Good> {
+    public static final class SortedByPrice implements Comparator<Good> {
         @Override
         public int compare(Good product1, Good product2) {
             Double price1 = product1.getPrice();
             Double price2 = product2.getPrice();
-            if(price1 > price2) {
+            if (price1 > price2) {
                 return 1;
-            } else if(price1 < price2) {
+            } else if (price1 < price2) {
                 return -1;
             } else {
                 return 0;
             }
         }
     }
+
     @Override
     public String execute(HttpServletRequest request) {
-        ProductsDAO pmd = new GoodDaoImplementation();
+        ProductsDAO productsDAO = new GoodDaoImplementation();
         String page = null;
 
         // extract values from user request
@@ -60,57 +65,92 @@ public class GoodsPageCommand implements ActionCommand {
         String categoryProd = request.getParameter(PARAM_PROD_CATEGORY);
         String sortByName = request.getParameter(PARAM_SORT_BY_NAME);
         String sortByPrice = request.getParameter(PARAM_SORT_BY_PRICE);
-        String viewAmountProduct = request.getParameter(PARAM_VIEW_AMOUNT_PRODUCT);
 
-        //set initial amount of product on 1 page
-        if(request.getParameter(PARAM_VIEW_AMOUNT_PRODUCT) != null){
-            GoodList newProductsList = new GoodList();
-            String currentCategoryProd = (String) request.getSession().getAttribute("currentCategoryProduct");
-            GoodList allProducts = pmd.getProductByProducerWithPagination(Integer.valueOf(currentCategoryProd));
-            int maxProduct = Integer.valueOf(viewAmountProduct);
-            if(maxProduct > allProducts.getSize()) {
-                maxProduct = allProducts.getSize();
-            }
+        // get all products by producer from db and show it on web page
 
-            for(Good product : allProducts.getGoods().subList(0, maxProduct)) {
-                newProductsList.addGood(product);
-            }
-            request.getSession().setAttribute("maxProductOnPage", maxProduct);
-            request.getSession().setAttribute("productCategList", newProductsList);
-            return ConfigurationManager.getProperty("path.page.goods");
-        }
-
-        // get all products from db and show it on web page
-        if (request.getParameter(PARAM_SHOW_PRODUCTS) != null) {
+        if (request.getParameter(PARAM_SHOW_PRODUCTS_BY_PRODUCER) != null) {
             Order order = (Order) request.getSession().getAttribute("order");
             if (order != null) {
                 double orderAmount = 0;
                 for (Integer idProduct : order.getProdacts()) {
-                    orderAmount += pmd.getPoductById(idProduct).getPrice();
+                    orderAmount += productsDAO.getPoductById(idProduct).getPrice();
                 }
                 request.getSession().setAttribute("orderAmount", orderAmount);
             }
 
-            //set standard amount of product on web page
-            int maxProductsOnPage = 25;
-            GoodList allProducts = pmd.getProductByProducerWithPagination(Integer.parseInt(categoryProd));
-            if(maxProductsOnPage > allProducts.getSize()) {
-                maxProductsOnPage = allProducts.getSize();
+            GoodList allProducts = null;
+            //show all products of all producers
+            if (categoryProd.equals("0")) {
+                beginIndex = 0;
+                allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+                request.getSession().setAttribute("currentProducer", categoryProd);
+                request.getSession().setAttribute("amountOfProduct", productsDAO.countAllProducts());
+                request.getSession().setAttribute("firstPage", true);
+                request.getSession().setAttribute("lastPage", false);
+
+            } else {
+                beginIndex = 0;
+                allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(categoryProd), beginIndex, AMOUNTTOSHOW);
+                request.getSession().setAttribute("currentProducer", categoryProd);
+                request.getSession().setAttribute("amountOfProduct", productsDAO.countProductsByProducers(Integer.parseInt(categoryProd)));
+                request.getSession().setAttribute("firstPage", true);
+                request.getSession().setAttribute("lastPage", false);
             }
-            GoodList newProductsList = new GoodList();
-            for(Good product : allProducts.getGoods().subList(0, Integer.valueOf(maxProductsOnPage))) {
-                newProductsList.addGood(product);
+
+            request.getSession().setAttribute("productCategList", allProducts);
+            return ConfigurationManager.getProperty("path.page.goods");
+        }
+
+        if (request.getParameter(PARAM_VIEW_NEXT) != null && request.getParameter(CURRENTPRODUCER).equals("0")) {
+            beginIndex += AMOUNTTOSHOW;
+            int numberOfPages = (int) Math.ceil(productsDAO.countAllProducts() / (AMOUNTTOSHOW * 1.0));
+            GoodList allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+            request.getSession().setAttribute("productCategList", allProducts);
+            request.getSession().setAttribute("firstPage", false);
+            if (beginIndex == ((numberOfPages - 1) * AMOUNTTOSHOW)) {
+                request.getSession().setAttribute("lastPage", true);
             }
-            request.getSession().setAttribute("currentCategoryProduct", categoryProd);
-            request.getSession().setAttribute("amountofproducts", allProducts.getSize());
-            request.getSession().setAttribute("productCategList", newProductsList);
+            return ConfigurationManager.getProperty("path.page.goods");
+        }
+
+        if (request.getParameter(PARAM_VIEW_PREVIOUS) != null && request.getParameter(CURRENTPRODUCER).equals("0")) {
+            beginIndex -= AMOUNTTOSHOW;
+            GoodList allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+            request.getSession().setAttribute("productCategList", allProducts);
+            request.getSession().setAttribute("lastPage", false);
+            if (beginIndex == 0) {
+                request.getSession().setAttribute("firstPage", true);
+            }
+            return ConfigurationManager.getProperty("path.page.goods");
+        }
+
+        if (request.getParameter(PARAM_VIEW_NEXT) != null && !(request.getParameter(CURRENTPRODUCER).equals("0"))) {
+            beginIndex += AMOUNTTOSHOW;
+            int numberOfPages = (int) Math.ceil(productsDAO.countProductsByProducers(Integer.parseInt(request.getParameter(CURRENTPRODUCER))) / (AMOUNTTOSHOW * 1.0));
+            GoodList allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
+            request.getSession().setAttribute("productCategList", allProducts);
+            request.getSession().setAttribute("firstPage", false);
+            if (beginIndex == ((numberOfPages - 1) * AMOUNTTOSHOW)) {
+                request.getSession().setAttribute("lastPage", true);
+            }
+            return ConfigurationManager.getProperty("path.page.goods");
+        }
+
+        if (request.getParameter(PARAM_VIEW_PREVIOUS) != null && !(request.getParameter(CURRENTPRODUCER).equals("0"))) {
+            beginIndex -= AMOUNTTOSHOW;
+            GoodList allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
+            request.getSession().setAttribute("productCategList", allProducts);
+            request.getSession().setAttribute("lastPage", false);
+            if (beginIndex == 0) {
+                request.getSession().setAttribute("firstPage", true);
+            }
             return ConfigurationManager.getProperty("path.page.goods");
         }
 
         //sort our product by name or price and show it on web page
         if (sortByName != null || sortByPrice != null) {
             GoodList listProduct = (GoodList) request.getSession().getAttribute("productCategList");
-            if(sortByName != null) {
+            if (sortByName != null) {
                 Collections.sort(listProduct.getGoods(), new SortedByName());
             } else {
                 Collections.sort(listProduct.getGoods(), new SortedByPrice());
@@ -121,7 +161,7 @@ public class GoodsPageCommand implements ActionCommand {
 
         // add product to oder
         if (request.getParameter(PARAM_ADD_PRODUCT) != null) {
-            if(request.getSession().getAttribute("user") == null) {
+            if (request.getSession().getAttribute("user") == null) {
                 request.setAttribute("ErrorUserNotLogin", MessagesManager.getProperty("message.mustlogin"));
                 return ConfigurationManager.getProperty("path.page.goods");
             }
@@ -135,7 +175,7 @@ public class GoodsPageCommand implements ActionCommand {
             }
             // check the availability of the product in the database
             // if product not available send message to main page
-            Good product = pmd.getPoductById(Integer.valueOf(productID));
+            Good product = productsDAO.getPoductById(Integer.valueOf(productID));
             if (product.getQuantity() == 0) {
                 request.setAttribute("ErrorNotInStockMessage", MessagesManager.getProperty("message.notinstock"));
                 return ConfigurationManager.getProperty("path.page.goods");
@@ -157,7 +197,7 @@ public class GoodsPageCommand implements ActionCommand {
 
             double orderAmount = 0;
             for (Integer idProduct : order.getProdacts()) {
-                Good product = pmd.getPoductById(idProduct);
+                Good product = productsDAO.getPoductById(idProduct);
                 cartProduct.addGood(product);
                 orderAmount += product.getPrice();
             }

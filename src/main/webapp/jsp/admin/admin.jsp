@@ -42,7 +42,7 @@
                   <td align="left">Product_ID: ${product.id}</td>
                   <td align="left">Price: ${product.price}</td>
                   <td align="left">Quantity: ${product.quantity}</td>
-                  <td align="left">Producer: ${product.description}</td>
+                  <td align="left">${product.description}</td>
                </tr>
             </c:forEach>
          </tbody>

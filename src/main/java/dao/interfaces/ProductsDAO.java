@@ -16,18 +16,24 @@ public interface ProductsDAO {
 
     public void createProduct(Good good);
 
+    int countAllProducts();
+
+    int countProductsByProducers(int producerId);
+
     public GoodList getAllPRoducts();
+
+    GoodList getAllPRoductsWithPagination(int beginIndex, int amountToShow);
 
     public Good getPoductById(int id);
 
     public GoodList getProductByProducer(int id);
+
+    GoodList getProductByProducerWithPagination(int producerId, int beginIndex, int amountToShow);
 
     public void updateQuantity(int id, int quantity);
 
     public TransactionalGoodImplementation startTransaction();
 
     public GoodList resultSearchByRequest (String searchRequest);
-
-    public GoodList getProductByProducerWithPagination(int producerId);
 
     }

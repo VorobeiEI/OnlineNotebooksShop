@@ -1,6 +1,7 @@
 package bussinessprocesses.command.otherPages;
 
 import bussinessprocesses.command.ActionCommand;
+import bussinessprocesses.command.mainpages.GoodsPageCommand;
 import bussinessprocesses.resource.ConfigurationManager;
 import bussinessprocesses.resource.MessagesManager;
 import dao.impl.GoodDaoImplementation;

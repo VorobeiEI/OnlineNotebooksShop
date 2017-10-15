@@ -2,156 +2,156 @@
 		  xmlns="http://www.example.org/products" xsi:schemaLocation="">
 	<product>
 		<id>1</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire E5</name>
+		<description> AMD A9 Processor* 15.6" HD Display* 2GB AMD Radeon R5 M430* Windows 10 Home</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
+		<ram>2</ram>
 		<memory>520</memory>
 		<price>500</price>
 		<quantity>5</quantity>
 	</product>
 	<product>
 		<id>2</id>
-		<name>Mega1</name>
-		<description>Ultrathin</description>
+		<name>Aspire ES1</name>
+		<description>* Intel Pentium Processor* 15.6" Display* 1TB Hard Drive* 8GB RAM</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
+		<ram>8</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>3</id>
-		<name>Mega2</name>
-		<description>Ultra</description>
+		<name>Aspire Spin 5</name>
+		<description>* Intel Core i7Processor* 13.3" FHD 1920x1080 Touchscreen* 16GB RAM* 128GB SSD</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>16</ram>
+		<memory>128</memory>
+		<price>1399</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>4</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire 5</name>
+		<description>* Intel Core i7 Processor * 12GB RAM* 1TB HDD* 2GB Dedicated Graphics</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>12</ram>
+		<memory>1000</memory>
+		<price>1199</price>
+		<quantity>5</quantity>
 	</product>
 	<product>
 		<id>5</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Spin 5</name>
+		<description>* Intel Core i5Processor* 8GB Ram * 128GB SSD</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>128</memory>
+		<price>999</price>
+		<quantity>4</quantity>
 	</product>
 	<product>
 		<id>6</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire 5</name>
+		<description>* AMD A12 Processor* 15.6" HD Display* 2GB AMD Radeon RX 540* 128GB SSD 1TB HDD* Windows 10* 802.11ac BT</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>999</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>7</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Swift 3 SF</name>
+		<description>* Intel Core i5 Processor * 2GB NVIDIA GeForce MX150* 128GB SSD* 14" FHD IPS Display* 8GB RAM</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>128</memory>
+		<price>1299</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>8</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Swift 3 Intel Core</name>
+		<description>* Intel Core i7 Processor * 14" Full HD IPS Display* 8GB RAM* 256GB SSD* 2GB NVIDIA GeForce MX150</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>256</memory>
+		<price>1299</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>9</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire 5 Intel Core</name>
+		<description>* 15.6" HD Display* 1TB HDD* 2GB NVIDIA GeForce 940MX* 802.11ac BT* Intel Core i5 Processor * 12GB RAM</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>12	</ram>
+		<memory>1000</memory>
+		<price>899</price>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>10</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire R3</name>
+		<description>* 11.6" Multi-touch HD Display * Intel Celeron* Intel HD Graphics* Windows 10</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>4</ram>
+		<memory>32</memory>
+		<price>399</price>
+		<quantity>6</quantity>
 	</product>
 	<product>
 		<id>11</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire E5 Intel Core</name>
+		<description>* Intel Core i5 Processor* 15.6" HD LED LCD Display* Windows 10 Home* DVD-Writer Optical Drive</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>16</ram>
+		<memory>1000</memory>
+		<price>1099</price>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>12</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire E5 AMD</name>
+		<description>* AMD A12 Processor* 15.6" HD (1366 x 768) resolution Display* AMD Radeon R7 M440* 802.11ac wireless LAN* Windows 10 Home</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>997</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>13</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire F5-F7</name>
+		<description>* Intel Core i7Processor</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>16</ram>
+		<memory>1000</memory>
+		<price>1000</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>14</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
+		<name>Aspire Intel Celeron</name>
+		<description>* Intel Celeron Processor* Intel HD Graphics* DVD-Super Multi Drive (Dual Layer)* Quad Core up to 2.08GHz, 2MB Cache</description>
 		<producerid>1</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>4</ram>
+		<memory>500</memory>
+		<price>550</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
@@ -345,7 +345,7 @@
 		<id>32</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
@@ -356,7 +356,7 @@
 		<id>33</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
@@ -367,110 +367,110 @@
 		<id>34</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>35</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>36</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>37</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>38</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>39</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>40</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>41</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>42</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>43</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
 		<price>500</price>
-		<quantity>1</quantity>
+		<quantity>2</quantity>
 	</product>
 </products>
