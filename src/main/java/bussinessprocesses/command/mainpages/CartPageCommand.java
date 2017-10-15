@@ -3,15 +3,14 @@ package bussinessprocesses.command.mainpages;
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.resource.ConfigurationManager;
 import bussinessprocesses.resource.MessagesManager;
-import dao.impl.GoodDaoImplementation;
-import dao.impl.OrderDAOImplementation;
-import dao.impl.TransactionalGoodImplementation;
-import dao.impl.UserDAOImpl;
-import dao.interfaces.OrdersDAO;
-import dao.interfaces.ProductsDAO;
+import dao.impl.*;
+import dao.impl.ProductDaoImpl;
+import dao.impl.TransactionalProductImpl;
+import dao.interfaces.OrderDAO;
+import dao.interfaces.ProductDAO;
 import dao.interfaces.UserDAO;
-import entity.Product.Good;
-import entity.Product.GoodList;
+import entity.product.Product;
+import entity.product.ProductList;
 import entity.order.Order;
 import entity.order.Status;
 import entity.users.User;
@@ -34,8 +33,8 @@ public class CartPageCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         UserDAO userDAO = new UserDAOImpl();
-        ProductsDAO productsDAO = new GoodDaoImplementation();
-        OrdersDAO ordersDAO = new OrderDAOImplementation();
+        ProductDAO productDAO = new ProductDaoImpl();
+        OrderDAO orderDAO = new OrderDAOImpl();
         String page = null;
 
         // extract values from user request
@@ -56,18 +55,18 @@ public class CartPageCommand implements ActionCommand {
         // delete the selected item from the cart
         if (request.getParameter(PARAM_REMOVE_FROM_CART) != null) {
 
-            GoodList cartProduct = new GoodList();
+            ProductList cartProduct = new ProductList();
             Order order = (Order) request.getSession().getAttribute("order");
             order.removeProducts(Integer.parseInt(productID));
 
             double orderAmount = 0;
             for (Integer idProduct : order.getProdacts()) {
-                Good product = productsDAO.getPoductById(idProduct);
+                Product product = productDAO.getPoductById(idProduct);
                 cartProduct.addGood(product);
                 orderAmount += product.getPrice();
             }
             request.getSession().setAttribute("order", order);
-            request.getSession().setAttribute("cart", cartProduct.getGoods());
+            request.getSession().setAttribute("cart", cartProduct.getProducts());
             request.getSession().setAttribute("orderAmount", orderAmount);
             return ConfigurationManager.getProperty("path.page.cart");
         }
@@ -89,14 +88,14 @@ public class CartPageCommand implements ActionCommand {
                 return ConfigurationManager.getProperty("path.page.cart");
             }
             lock.lock();
-            TransactionalGoodImplementation transaction = null;
+            TransactionalProductImpl transaction = null;
             try {
-                transaction = productsDAO.startTransaction();
+                transaction = productDAO.startTransaction();
 
                 // before payment checking quantity of product in db and update
                 // it value
                 for (Integer prodID : order.getProdacts()) {
-                    Good product = transaction.getPoductById(prodID);
+                    Product product = transaction.getPoductById(prodID);
                     // check the availability of the product in the database
                     if (product.getQuantity() == 0) {
                         transaction.rollback();
@@ -122,7 +121,7 @@ public class CartPageCommand implements ActionCommand {
             order.setUserId(userId);
             order.setSum(orderAmount);
             order.setDate(new Date(System.currentTimeMillis()));
-            ordersDAO.createOrder(order);
+            orderDAO.createOrder(order);
 
             request.getSession().setAttribute("order", null);
             request.getSession().setAttribute("orderAmount", null);

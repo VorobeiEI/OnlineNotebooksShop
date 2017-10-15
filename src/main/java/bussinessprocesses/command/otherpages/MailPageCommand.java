@@ -1,4 +1,4 @@
-package bussinessprocesses.command.otherPages;
+package bussinessprocesses.command.otherpages;
 
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.resource.MailManager;

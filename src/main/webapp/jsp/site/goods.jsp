@@ -42,7 +42,7 @@
 
          <table class="table table-striped">
             <tbody>
-               <c:forEach items="${productCategList.getGoods()}" var="product">
+               <c:forEach items="${productCategList.getProducts()}" var="product">
                   <tr>
                      <td align="left">Product: ${product.name}</td>
                      <td align="left">CPU: ${product.cpu}</td>

@@ -1,4 +1,4 @@
-package dao.xmlParser;
+package dao.xmlparser;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;

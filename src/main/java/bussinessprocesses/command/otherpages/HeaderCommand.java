@@ -1,18 +1,16 @@
-package bussinessprocesses.command.otherPages;
+package bussinessprocesses.command.otherpages;
 
 import bussinessprocesses.command.ActionCommand;
-import bussinessprocesses.command.mainpages.GoodsPageCommand;
 import bussinessprocesses.resource.ConfigurationManager;
 import bussinessprocesses.resource.MessagesManager;
-import dao.impl.GoodDaoImplementation;
-import dao.interfaces.ProductsDAO;
-import entity.Product.Good;
-import entity.Product.GoodList;
+import dao.impl.ProductDaoImpl;
+import dao.interfaces.ProductDAO;
+import entity.product.Product;
+import entity.product.ProductList;
 import entity.order.Order;
 import entity.users.UserType;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.LinkedList;
 
 /**
  * Created by jacksparrow on 02.10.17.
@@ -29,7 +27,7 @@ public class HeaderCommand implements ActionCommand {
     private static final String PARAM_NAME_ADMIN = "admin";
     @Override
     public String execute(HttpServletRequest request) {
-        ProductsDAO pmd = new GoodDaoImplementation();
+        ProductDAO pmd = new ProductDaoImpl();
         String page = null;
 
         // redirect to goods page
@@ -63,7 +61,7 @@ public class HeaderCommand implements ActionCommand {
 
         // redirect to cart page
         if (request.getParameter(PARAM_NAME_CART) != null) {
-            GoodList cartProduct = new GoodList();
+            ProductList cartProduct = new ProductList();
             Order order = (Order) request.getSession().getAttribute("order");
             if (order == null) {
                 request.setAttribute("cartIsEmptyMessage", MessagesManager.getProperty("message.cartisempty"));
@@ -72,11 +70,11 @@ public class HeaderCommand implements ActionCommand {
 
             double orderAmount = 0;
             for (Integer idProduct : order.getProdacts()) {
-                Good good = pmd.getPoductById(idProduct);
-                cartProduct.addGood(good);
-                orderAmount += good.getPrice();
+                Product product = pmd.getPoductById(idProduct);
+                cartProduct.addGood(product);
+                orderAmount += product.getPrice();
             }
-            request.getSession().setAttribute("cart", cartProduct.getGoods());
+            request.getSession().setAttribute("cart", cartProduct.getProducts());
             request.getSession().setAttribute("orderAmount", orderAmount);
             return ConfigurationManager.getProperty("path.page.cart");
         }

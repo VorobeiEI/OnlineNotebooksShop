@@ -2,7 +2,7 @@ package bussinessprocesses.command.actionfactory;
 
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.command.enumcommand.CommandEnum;
-import bussinessprocesses.command.otherPages.EmptyCommand;
+import bussinessprocesses.command.otherpages.EmptyCommand;
 import bussinessprocesses.resource.MessagesManager;
 
 import javax.servlet.http.HttpServletRequest;

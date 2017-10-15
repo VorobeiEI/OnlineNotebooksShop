@@ -1,4 +1,4 @@
-package bussinessprocesses.command.otherPages;
+package bussinessprocesses.command.otherpages;
 
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.implementation.PasswordGeneratorImpl;
@@ -24,7 +24,6 @@ public class EditProfilePageCommand implements ActionCommand {
     private UserDAO userDao;
     private PasswordGenerator generator = new PasswordGeneratorImpl();
 
-
     @Override
     public String execute(HttpServletRequest request) {
         userDao = new UserDAOImpl();
@@ -39,7 +38,6 @@ public class EditProfilePageCommand implements ActionCommand {
                     MessagesManager.getProperty("message.errorpassword"));
             page = ConfigurationManager.getProperty("path.page.editprofile");
         }
-
 
         //checking for compliance with login and password
         if (checkingLogin(currentPassword, request)) {

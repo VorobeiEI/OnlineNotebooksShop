@@ -1,7 +1,7 @@
-package dao.xmlParser;
+package dao.xmlparser;
 
-import entity.Product.Good;
-import entity.Product.GoodList;
+import entity.product.Product;
+import entity.product.ProductList;
 import org.apache.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
@@ -17,11 +17,11 @@ import java.io.FileNotFoundException;
 public class STAXMLParser {
     private final Logger logger = Logger.getLogger(STAXMLParser.class);
 
-    public GoodList doParse(String fileName) throws CannotReadXMLException, FileNotFoundException {
+    public ProductList doParse(String fileName) throws CannotReadXMLException, FileNotFoundException {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader reader = null;
-        GoodList productList = null;
-        Good product = null;
+        ProductList productList = null;
+        Product product = null;
         String tagContent = null;
 
         try {
@@ -29,17 +29,15 @@ public class STAXMLParser {
 
             while (reader.hasNext()) {
                 int event = reader.next();
-
-
                 switch (event) {
                     case XMLStreamConstants.START_ELEMENT:
                         ProductTagForXML name = ProductTagForXML.valueOf(reader.getLocalName().toUpperCase());
                         if (name == ProductTagForXML.PRODUCT) {
-                            product = new Good();
+                            product = new Product();
                             break;
                         }
                         if (name == ProductTagForXML.PRODUCTS) {
-                            productList = new GoodList();
+                            productList = new ProductList();
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:
@@ -90,7 +88,7 @@ public class STAXMLParser {
                 try {
                     reader.close();
                 } catch (XMLStreamException e) {
-                    e.printStackTrace();
+                    logger.error(e);
                 }
             }
         }

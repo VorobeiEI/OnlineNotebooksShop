@@ -1,6 +1,6 @@
 package dao.impl;
 
-import dao.connectionPool.ConnectionPool;
+import dao.connectionpool.ConnectionPool;
 import dao.exception.DatabaseException;
 import org.apache.log4j.Logger;
 
@@ -10,13 +10,13 @@ import java.sql.SQLException;
 /**
  * Created by jacksparrow on 29.09.17.
  */
-public class TransactionalGoodImplementation extends GoodDaoImplementation {
+public class TransactionalProductImpl extends ProductDaoImpl {
 
     private final Connection connection ;
-    private static final Logger logger = Logger.getLogger(TransactionalGoodImplementation.class);
+    private static final Logger logger = Logger.getLogger(TransactionalProductImpl.class);
 
 
-    public TransactionalGoodImplementation(Connection connection) {
+    public TransactionalProductImpl(Connection connection) {
         this.connection = connection;
     }
 

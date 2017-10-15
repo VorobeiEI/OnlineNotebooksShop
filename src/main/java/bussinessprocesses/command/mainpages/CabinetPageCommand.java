@@ -2,13 +2,13 @@ package bussinessprocesses.command.mainpages;
 
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.resource.ConfigurationManager;
-import dao.impl.GoodDaoImplementation;
-import dao.impl.OrderDAOImplementation;
+import dao.impl.ProductDaoImpl;
+import dao.impl.OrderDAOImpl;
 import dao.impl.UserDAOImpl;
-import dao.interfaces.OrdersDAO;
-import dao.interfaces.ProductsDAO;
+import dao.interfaces.OrderDAO;
+import dao.interfaces.ProductDAO;
 import dao.interfaces.UserDAO;
-import entity.Product.Good;
+import entity.product.Product;
 import entity.order.Order;
 import entity.users.User;
 
@@ -30,9 +30,9 @@ public class CabinetPageCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        OrdersDAO ordersDAO = new OrderDAOImplementation();
+        OrderDAO orderDAO = new OrderDAOImpl();
         UserDAO userDAO = new UserDAOImpl();
-        ProductsDAO productsDAO = new GoodDaoImplementation();
+        ProductDAO productDAO = new ProductDaoImpl();
         String page = null;
         User user;
 
@@ -42,7 +42,7 @@ public class CabinetPageCommand implements ActionCommand {
         if(request.getParameter(PARAM_USER_ORDER) != null) {
             String email = (String) request.getSession().getAttribute("user");
             user = userDAO.getUserByEmail(email);
-            request.setAttribute("userOderList", ordersDAO.getAllUsersOrders(user.getId()));
+            request.setAttribute("userOderList", orderDAO.getAllUsersOrders(user.getId()));
             return ConfigurationManager.getProperty("path.page.cabinet");
         }
 
@@ -60,14 +60,14 @@ public class CabinetPageCommand implements ActionCommand {
         if(request.getParameter(PARAM_SHOW_ORDER) !=null) {
             ArrayList<Order> userOrder = new ArrayList<>();
             ArrayList<Integer> productIdList;
-            ArrayList<Good> productList = new ArrayList<>();
+            ArrayList<Product> productList = new ArrayList<>();
             //view only one selected order on web page
-            userOrder.add(ordersDAO.getOrderById(Integer.valueOf(orderId)));
+            userOrder.add(orderDAO.getOrderById(Integer.valueOf(orderId)));
             request.setAttribute("userOderList", userOrder);
             //view list of product from selected order
-            productIdList = ordersDAO.getAllProductFromOrder(Integer.valueOf(orderId));
+            productIdList = orderDAO.getAllProductFromOrder(Integer.valueOf(orderId));
             for(Integer p : productIdList) {
-                productList.add(productsDAO.getPoductById(p));
+                productList.add(productDAO.getPoductById(p));
             }
             request.setAttribute("productInOrder", productList);;
             return ConfigurationManager.getProperty("path.page.cabinet");

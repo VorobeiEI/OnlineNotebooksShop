@@ -1,4 +1,4 @@
-package entity.Product;
+package entity.product;
 
 /**
  * Created by jacksparrow on 18.09.17.

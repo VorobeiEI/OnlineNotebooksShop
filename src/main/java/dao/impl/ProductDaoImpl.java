@@ -1,10 +1,10 @@
 package dao.impl;
 
-import dao.connectionPool.ConnectionPool;
+import dao.connectionpool.ConnectionPool;
 import dao.exception.DatabaseException;
-import dao.interfaces.ProductsDAO;
-import entity.Product.Good;
-import entity.Product.GoodList;
+import dao.interfaces.ProductDAO;
+import entity.product.Product;
+import entity.product.ProductList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 /**
  * Created by jacksparrow on 26.09.17.
  */
-public class GoodDaoImplementation implements ProductsDAO {
+public class ProductDaoImpl implements ProductDAO {
 
     public static final String SQL_COUNT_QOUANTITY_BY_PRODUCER = "SELECT COUNT(*) AS total FROM products WHERE producer_id = ?";
     public static final String SQL_COUNT_QUANTITY_OF_PRODUCT = "SELECT COUNT(*) AS total FROM products";
@@ -37,16 +37,16 @@ public class GoodDaoImplementation implements ProductsDAO {
 
     public static final String SQL_SELECT_PRODUCT_BY_ID = "SELECT id,name, description, price, cpu,ram, memory, producer_id,qantity FROM products WHERE id = ?";
 
-    private static final Logger logger = Logger.getLogger(GoodDaoImplementation.class);
+    private static final Logger logger = Logger.getLogger(ProductDaoImpl.class);
 
     public static final class GoodNotFoundException extends RuntimeException {
         public GoodNotFoundException(final Integer productId) {
-            super("Product with id: " + productId + " hasn't been found");
+            super("product with id: " + productId + " hasn't been found");
         }
     }
 
     @Override
-    public void insertOrUpdateProduct(Good good) {
+    public void insertOrUpdateProduct(Product product) {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -55,16 +55,16 @@ public class GoodDaoImplementation implements ProductsDAO {
             conn = getConnection();
             ps = conn.prepareStatement(SQL_INSERT_OR_UPDATE);
 
-            ps.setInt(1, good.getId());
-            ps.setString(2, good.getName());
-            ps.setString(3, good.getDescription());
-            ps.setDouble(4, good.getPrice());
-            ps.setDouble(5, good.getCpu());
-            ps.setInt(6, good.getRam());
-            ps.setDouble(7, good.getMemory());
-            ps.setInt(8, good.getProducerId());
-            ps.setInt(9, good.getQuantity());
-            ps.setInt(10, good.getQuantity());
+            ps.setInt(1, product.getId());
+            ps.setString(2, product.getName());
+            ps.setString(3, product.getDescription());
+            ps.setDouble(4, product.getPrice());
+            ps.setDouble(5, product.getCpu());
+            ps.setInt(6, product.getRam());
+            ps.setDouble(7, product.getMemory());
+            ps.setInt(8, product.getProducerId());
+            ps.setInt(9, product.getQuantity());
+            ps.setInt(10, product.getQuantity());
             ps.execute();
 
         } catch (SQLException e) {
@@ -78,7 +78,7 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public void createProduct(Good good) {
+    public void createProduct(Product product) {
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -86,14 +86,14 @@ public class GoodDaoImplementation implements ProductsDAO {
 
             conn = getConnection();
             ps = conn.prepareStatement(SQL_CREATE_PRODUCT);
-            ps.setString(1, good.getName());
-            ps.setString(2, good.getDescription());
-            ps.setDouble(3, good.getPrice());
-            ps.setDouble(4, good.getCpu());
-            ps.setInt(5, good.getRam());
-            ps.setDouble(6, good.getMemory());
-            ps.setInt(7, good.getProducerId());
-            ps.setInt(8, good.getQuantity());
+            ps.setString(1, product.getName());
+            ps.setString(2, product.getDescription());
+            ps.setDouble(3, product.getPrice());
+            ps.setDouble(4, product.getCpu());
+            ps.setInt(5, product.getRam());
+            ps.setDouble(6, product.getMemory());
+            ps.setInt(7, product.getProducerId());
+            ps.setInt(8, product.getQuantity());
             ps.execute();
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
@@ -150,31 +150,31 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public GoodList getAllPRoducts() {
+    public ProductList getAllPRoducts() {
         Connection conn = null;
         PreparedStatement ps = null;
-        GoodList goodList = new GoodList();
+        ProductList productList = new ProductList();
 
         try {
             conn = getConnection();
             ps = conn.prepareStatement(SQL_SELECT_ALL_PRODUCTS);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                Good good = new Good();
-                good.setId(resultSet.getInt(1));
-                good.setName(resultSet.getString(2));
-                good.setDescription("Producer: " + resultSet.getString(11) +
+                Product product = new Product();
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription("Producer: " + resultSet.getString(11) +
                         ". Description: " + resultSet.getString(3));
-                good.setPrice(resultSet.getDouble(4));
-                good.setCpu(resultSet.getDouble(5));
-                good.setRam(resultSet.getInt(6));
-                good.setMemory(resultSet.getDouble(7));
-                good.setProducerId(resultSet.getInt(8));
-                good.setQuantity(resultSet.getInt(9));
+                product.setPrice(resultSet.getDouble(4));
+                product.setCpu(resultSet.getDouble(5));
+                product.setRam(resultSet.getInt(6));
+                product.setMemory(resultSet.getDouble(7));
+                product.setProducerId(resultSet.getInt(8));
+                product.setQuantity(resultSet.getInt(9));
 
-                goodList.addGood(good);
+                productList.addGood(product);
             }
-            return goodList;
+            return productList;
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
@@ -185,10 +185,10 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public GoodList getAllPRoductsWithPagination(int beginIndex, int amountToShow) {
+    public ProductList getAllPRoductsWithPagination(int beginIndex, int amountToShow) {
         Connection conn = null;
         PreparedStatement ps = null;
-        GoodList goodList = new GoodList();
+        ProductList productList = new ProductList();
 
         try {
             conn = getConnection();
@@ -197,21 +197,21 @@ public class GoodDaoImplementation implements ProductsDAO {
             ps.setInt(2, amountToShow);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                Good good = new Good();
-                good.setId(resultSet.getInt(1));
-                good.setName(resultSet.getString(2));
-                good.setDescription("Producer: " + resultSet.getString(11) +
+                Product product = new Product();
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription("Producer: " + resultSet.getString(11) +
                         ". Description: " + resultSet.getString(3));
-                good.setPrice(resultSet.getDouble(4));
-                good.setCpu(resultSet.getDouble(5));
-                good.setRam(resultSet.getInt(6));
-                good.setMemory(resultSet.getDouble(7));
-                good.setProducerId(resultSet.getInt(8));
-                good.setQuantity(resultSet.getInt(9));
+                product.setPrice(resultSet.getDouble(4));
+                product.setCpu(resultSet.getDouble(5));
+                product.setRam(resultSet.getInt(6));
+                product.setMemory(resultSet.getDouble(7));
+                product.setProducerId(resultSet.getInt(8));
+                product.setQuantity(resultSet.getInt(9));
 
-                goodList.addGood(good);
+                productList.addGood(product);
             }
-            return goodList;
+            return productList;
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
@@ -222,7 +222,7 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public Good getPoductById(int id) {
+    public Product getPoductById(int id) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -231,17 +231,17 @@ public class GoodDaoImplementation implements ProductsDAO {
             ps.setInt(1, id);
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
-                Good good = new Good();
-                good.setId(resultSet.getInt(1));
-                good.setName(resultSet.getString(2));
-                good.setDescription(resultSet.getString(3));
-                good.setPrice(resultSet.getDouble(4));
-                good.setCpu(resultSet.getDouble(5));
-                good.setRam(resultSet.getInt(6));
-                good.setMemory(resultSet.getDouble(7));
-                good.setProducerId(resultSet.getInt(8));
-                good.setQuantity(resultSet.getInt(9));
-                return good;
+                Product product = new Product();
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription(resultSet.getString(3));
+                product.setPrice(resultSet.getDouble(4));
+                product.setCpu(resultSet.getDouble(5));
+                product.setRam(resultSet.getInt(6));
+                product.setMemory(resultSet.getDouble(7));
+                product.setProducerId(resultSet.getInt(8));
+                product.setQuantity(resultSet.getInt(9));
+                return product;
             } else {
                 throw new GoodNotFoundException(id);
             }
@@ -255,11 +255,11 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public GoodList getProductByProducer(int producerId) {
+    public ProductList getProductByProducer(int producerId) {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        GoodList goodList = new GoodList();
+        ProductList productList = new ProductList();
 
         try {
             conn = getConnection();
@@ -268,21 +268,21 @@ public class GoodDaoImplementation implements ProductsDAO {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                Good good = new Good();
-                good.setId(resultSet.getInt(1));
-                good.setName(resultSet.getString(2));
-                good.setDescription(resultSet.getString(3));
-                good.setPrice(resultSet.getDouble(4));
-                good.setCpu(resultSet.getDouble(5));
-                good.setRam(resultSet.getInt(6));
-                good.setMemory(resultSet.getDouble(7));
-                good.setProducerId(resultSet.getInt(8));
-                good.setQuantity(resultSet.getInt(9));
+                Product product = new Product();
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription(resultSet.getString(3));
+                product.setPrice(resultSet.getDouble(4));
+                product.setCpu(resultSet.getDouble(5));
+                product.setRam(resultSet.getInt(6));
+                product.setMemory(resultSet.getDouble(7));
+                product.setProducerId(resultSet.getInt(8));
+                product.setQuantity(resultSet.getInt(9));
 
-                goodList.addGood(good);
+                productList.addGood(product);
 
             }
-            return goodList;
+            return productList;
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
@@ -294,11 +294,11 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public GoodList getProductByProducerWithPagination(int producerId, int beginIndex, int amountToShow) {
+    public ProductList getProductByProducerWithPagination(int producerId, int beginIndex, int amountToShow) {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        GoodList goodList = new GoodList();
+        ProductList productList = new ProductList();
 
         try {
             conn = getConnection();
@@ -309,21 +309,21 @@ public class GoodDaoImplementation implements ProductsDAO {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                Good good = new Good();
-                good.setId(resultSet.getInt(1));
-                good.setName(resultSet.getString(2));
-                good.setDescription(resultSet.getString(3));
-                good.setPrice(resultSet.getDouble(4));
-                good.setCpu(resultSet.getDouble(5));
-                good.setRam(resultSet.getInt(6));
-                good.setMemory(resultSet.getDouble(7));
-                good.setProducerId(resultSet.getInt(8));
-                good.setQuantity(resultSet.getInt(9));
+                Product product = new Product();
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription(resultSet.getString(3));
+                product.setPrice(resultSet.getDouble(4));
+                product.setCpu(resultSet.getDouble(5));
+                product.setRam(resultSet.getInt(6));
+                product.setMemory(resultSet.getDouble(7));
+                product.setProducerId(resultSet.getInt(8));
+                product.setQuantity(resultSet.getInt(9));
 
-                goodList.addGood(good);
+                productList.addGood(product);
 
             }
-            return goodList;
+            return productList;
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
@@ -356,7 +356,7 @@ public class GoodDaoImplementation implements ProductsDAO {
     }
 
     @Override
-    public TransactionalGoodImplementation startTransaction() {
+    public TransactionalProductImpl startTransaction() {
 
         Connection conn = getConnection();
 
@@ -366,16 +366,16 @@ public class GoodDaoImplementation implements ProductsDAO {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
         }
-        return new TransactionalGoodImplementation(conn);
+        return new TransactionalProductImpl(conn);
     }
 
     @Override
-    public GoodList resultSearchByRequest(String searchRequest) {
+    public ProductList resultSearchByRequest(String searchRequest) {
 
         Connection conn = null;
         PreparedStatement psForProducerName = null;
         PreparedStatement psForSaarchProduct = null;
-        GoodList goodList = new GoodList();
+        ProductList productList = new ProductList();
         int producerId = 0;
 
         try {
@@ -395,17 +395,17 @@ public class GoodDaoImplementation implements ProductsDAO {
             rs = psForSaarchProduct.executeQuery();
 
             while (rs.next()) {
-                Good good = new Good();
-                good.setId(rs.getInt(1));
-                good.setName(rs.getString(2));
-                good.setDescription(rs.getString(3));
-                good.setPrice(rs.getDouble(4));
-                good.setCpu(rs.getDouble(5));
-                good.setRam(rs.getInt(6));
-                good.setMemory(rs.getDouble(7));
-                good.setProducerId(rs.getInt(8));
-                good.setQuantity(rs.getInt(9));
-                goodList.addGood(good);
+                Product product = new Product();
+                product.setId(rs.getInt(1));
+                product.setName(rs.getString(2));
+                product.setDescription(rs.getString(3));
+                product.setPrice(rs.getDouble(4));
+                product.setCpu(rs.getDouble(5));
+                product.setRam(rs.getInt(6));
+                product.setMemory(rs.getDouble(7));
+                product.setProducerId(rs.getInt(8));
+                product.setQuantity(rs.getInt(9));
+                productList.addGood(product);
 
             }
 
@@ -418,7 +418,7 @@ public class GoodDaoImplementation implements ProductsDAO {
             ConnectionPool.close(conn);
         }
 
-        return goodList;
+        return productList;
     }
 
     protected Connection getConnection() {

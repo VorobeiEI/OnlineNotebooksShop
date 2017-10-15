@@ -3,10 +3,10 @@ package bussinessprocesses.command.mainpages;
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.resource.ConfigurationManager;
 import bussinessprocesses.resource.MessagesManager;
-import dao.impl.GoodDaoImplementation;
-import dao.interfaces.ProductsDAO;
-import entity.Product.Good;
-import entity.Product.GoodList;
+import dao.impl.ProductDaoImpl;
+import dao.interfaces.ProductDAO;
+import entity.product.Product;
+import entity.product.ProductList;
 import entity.order.Order;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,18 +31,18 @@ public class GoodsPageCommand implements ActionCommand {
     private static int beginIndex = 0;
     private static final int AMOUNTTOSHOW = 5;
 
-    public static final class SortedByName implements Comparator<Good> {
+    public static final class SortedByName implements Comparator<Product> {
         @Override
-        public int compare(Good product1, Good product2) {
+        public int compare(Product product1, Product product2) {
             String str1 = product1.getName();
             String str2 = product2.getName();
             return str1.compareTo(str2);
         }
     }
 
-    public static final class SortedByPrice implements Comparator<Good> {
+    public static final class SortedByPrice implements Comparator<Product> {
         @Override
-        public int compare(Good product1, Good product2) {
+        public int compare(Product product1, Product product2) {
             Double price1 = product1.getPrice();
             Double price2 = product2.getPrice();
             if (price1 > price2) {
@@ -57,7 +57,7 @@ public class GoodsPageCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        ProductsDAO productsDAO = new GoodDaoImplementation();
+        ProductDAO productDAO = new ProductDaoImpl();
         String page = null;
 
         // extract values from user request
@@ -73,26 +73,26 @@ public class GoodsPageCommand implements ActionCommand {
             if (order != null) {
                 double orderAmount = 0;
                 for (Integer idProduct : order.getProdacts()) {
-                    orderAmount += productsDAO.getPoductById(idProduct).getPrice();
+                    orderAmount += productDAO.getPoductById(idProduct).getPrice();
                 }
                 request.getSession().setAttribute("orderAmount", orderAmount);
             }
 
-            GoodList allProducts = null;
+            ProductList allProducts = null;
             //show all products of all producers
             if (categoryProd.equals("0")) {
                 beginIndex = 0;
-                allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+                allProducts = productDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
                 request.getSession().setAttribute("currentProducer", categoryProd);
-                request.getSession().setAttribute("amountOfProduct", productsDAO.countAllProducts());
+                request.getSession().setAttribute("amountOfProduct", productDAO.countAllProducts());
                 request.getSession().setAttribute("firstPage", true);
                 request.getSession().setAttribute("lastPage", false);
 
             } else {
                 beginIndex = 0;
-                allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(categoryProd), beginIndex, AMOUNTTOSHOW);
+                allProducts = productDAO.getProductByProducerWithPagination(Integer.parseInt(categoryProd), beginIndex, AMOUNTTOSHOW);
                 request.getSession().setAttribute("currentProducer", categoryProd);
-                request.getSession().setAttribute("amountOfProduct", productsDAO.countProductsByProducers(Integer.parseInt(categoryProd)));
+                request.getSession().setAttribute("amountOfProduct", productDAO.countProductsByProducers(Integer.parseInt(categoryProd)));
                 request.getSession().setAttribute("firstPage", true);
                 request.getSession().setAttribute("lastPage", false);
             }
@@ -103,8 +103,8 @@ public class GoodsPageCommand implements ActionCommand {
 
         if (request.getParameter(PARAM_VIEW_NEXT) != null && request.getParameter(CURRENTPRODUCER).equals("0")) {
             beginIndex += AMOUNTTOSHOW;
-            int numberOfPages = (int) Math.ceil(productsDAO.countAllProducts() / (AMOUNTTOSHOW * 1.0));
-            GoodList allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+            int numberOfPages = (int) Math.ceil(productDAO.countAllProducts() / (AMOUNTTOSHOW * 1.0));
+            ProductList allProducts = productDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
             request.getSession().setAttribute("productCategList", allProducts);
             request.getSession().setAttribute("firstPage", false);
             if (beginIndex == ((numberOfPages - 1) * AMOUNTTOSHOW)) {
@@ -115,7 +115,7 @@ public class GoodsPageCommand implements ActionCommand {
 
         if (request.getParameter(PARAM_VIEW_PREVIOUS) != null && request.getParameter(CURRENTPRODUCER).equals("0")) {
             beginIndex -= AMOUNTTOSHOW;
-            GoodList allProducts = productsDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
+            ProductList allProducts = productDAO.getAllPRoductsWithPagination(beginIndex, AMOUNTTOSHOW);
             request.getSession().setAttribute("productCategList", allProducts);
             request.getSession().setAttribute("lastPage", false);
             if (beginIndex == 0) {
@@ -126,8 +126,8 @@ public class GoodsPageCommand implements ActionCommand {
 
         if (request.getParameter(PARAM_VIEW_NEXT) != null && !(request.getParameter(CURRENTPRODUCER).equals("0"))) {
             beginIndex += AMOUNTTOSHOW;
-            int numberOfPages = (int) Math.ceil(productsDAO.countProductsByProducers(Integer.parseInt(request.getParameter(CURRENTPRODUCER))) / (AMOUNTTOSHOW * 1.0));
-            GoodList allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
+            int numberOfPages = (int) Math.ceil(productDAO.countProductsByProducers(Integer.parseInt(request.getParameter(CURRENTPRODUCER))) / (AMOUNTTOSHOW * 1.0));
+            ProductList allProducts = productDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
             request.getSession().setAttribute("productCategList", allProducts);
             request.getSession().setAttribute("firstPage", false);
             if (beginIndex == ((numberOfPages - 1) * AMOUNTTOSHOW)) {
@@ -138,7 +138,7 @@ public class GoodsPageCommand implements ActionCommand {
 
         if (request.getParameter(PARAM_VIEW_PREVIOUS) != null && !(request.getParameter(CURRENTPRODUCER).equals("0"))) {
             beginIndex -= AMOUNTTOSHOW;
-            GoodList allProducts = productsDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
+            ProductList allProducts = productDAO.getProductByProducerWithPagination(Integer.parseInt(request.getParameter(CURRENTPRODUCER)), beginIndex, AMOUNTTOSHOW);
             request.getSession().setAttribute("productCategList", allProducts);
             request.getSession().setAttribute("lastPage", false);
             if (beginIndex == 0) {
@@ -149,11 +149,11 @@ public class GoodsPageCommand implements ActionCommand {
 
         //sort our product by name or price and show it on web page
         if (sortByName != null || sortByPrice != null) {
-            GoodList listProduct = (GoodList) request.getSession().getAttribute("productCategList");
+            ProductList listProduct = (ProductList) request.getSession().getAttribute("productCategList");
             if (sortByName != null) {
-                Collections.sort(listProduct.getGoods(), new SortedByName());
+                Collections.sort(listProduct.getProducts(), new SortedByName());
             } else {
-                Collections.sort(listProduct.getGoods(), new SortedByPrice());
+                Collections.sort(listProduct.getProducts(), new SortedByPrice());
             }
             request.getSession().setAttribute("productCategList", listProduct);
             return ConfigurationManager.getProperty("path.page.goods");
@@ -175,7 +175,7 @@ public class GoodsPageCommand implements ActionCommand {
             }
             // check the availability of the product in the database
             // if product not available send message to main page
-            Good product = productsDAO.getPoductById(Integer.valueOf(productID));
+            Product product = productDAO.getPoductById(Integer.valueOf(productID));
             if (product.getQuantity() == 0) {
                 request.setAttribute("ErrorNotInStockMessage", MessagesManager.getProperty("message.notinstock"));
                 return ConfigurationManager.getProperty("path.page.goods");
@@ -188,7 +188,7 @@ public class GoodsPageCommand implements ActionCommand {
 
         // shows a list of all the goods that the customer has chosen
         if (request.getParameter(PARAM_CART) != null) {
-            GoodList cartProduct = new GoodList();
+            ProductList cartProduct = new ProductList();
             Order order = (Order) request.getSession().getAttribute("order");
             if (order == null) {
                 request.setAttribute("cartIsEmptyMessage", MessagesManager.getProperty("message.cartisempty"));
@@ -197,11 +197,11 @@ public class GoodsPageCommand implements ActionCommand {
 
             double orderAmount = 0;
             for (Integer idProduct : order.getProdacts()) {
-                Good product = productsDAO.getPoductById(idProduct);
+                Product product = productDAO.getPoductById(idProduct);
                 cartProduct.addGood(product);
                 orderAmount += product.getPrice();
             }
-            request.getSession().setAttribute("cart", cartProduct.getGoods());
+            request.getSession().setAttribute("cart", cartProduct.getProducts());
             request.getSession().setAttribute("orderAmount", orderAmount);
             return ConfigurationManager.getProperty("path.page.cart");
         }

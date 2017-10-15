@@ -1,11 +1,11 @@
-package entity.Product;
+package entity.product;
 
 import java.io.Serializable;
 
 /**
  * Created by jacksparrow on 12.09.17.
  */
-public class Good implements Serializable{
+public class Product implements Serializable{
 
     private int id;
     private String name;
@@ -16,8 +16,6 @@ public class Good implements Serializable{
     private Double memory;
     private double price;
     private int quantity;
-
-
 
     public int getProducerId() {
         return producerId;
@@ -93,7 +91,7 @@ public class Good implements Serializable{
 
     @Override
     public String toString() {
-        return "Good{" +
+        return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

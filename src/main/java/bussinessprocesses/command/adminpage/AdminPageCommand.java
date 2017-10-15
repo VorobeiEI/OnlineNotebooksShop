@@ -1,19 +1,19 @@
-package bussinessprocesses.command.AdminPage;
+package bussinessprocesses.command.adminpage;
 
 import bussinessprocesses.command.ActionCommand;
 import bussinessprocesses.resource.ConfigurationManager;
 import bussinessprocesses.resource.MessagesManager;
-import dao.impl.GoodDaoImplementation;
-import dao.impl.OrderDAOImplementation;
+import dao.impl.ProductDaoImpl;
+import dao.impl.OrderDAOImpl;
 import dao.impl.UserDAOImpl;
-import dao.interfaces.OrdersDAO;
-import dao.interfaces.ProductsDAO;
+import dao.interfaces.OrderDAO;
+import dao.interfaces.ProductDAO;
 import dao.interfaces.UserDAO;
-import dao.xmlParser.CannotReadXMLException;
-import dao.xmlParser.STAXMLParser;
-import dao.xmlParser.ValidatorXML;
-import entity.Product.Good;
-import entity.Product.GoodList;
+import dao.xmlparser.CannotReadXMLException;
+import dao.xmlparser.STAXMLParser;
+import dao.xmlparser.ValidatorXML;
+import entity.product.Product;
+import entity.product.ProductList;
 import entity.order.Status;
 import entity.users.UserType;
 
@@ -41,11 +41,11 @@ public class AdminPageCommand implements ActionCommand {
     private static final Lock lock = new ReentrantLock();
     @Override
     public String execute(HttpServletRequest request) {
-        ProductsDAO productsDAO = new GoodDaoImplementation();
+        ProductDAO productDAO = new ProductDaoImpl();
         UserDAO userDAO = new UserDAOImpl();
-        OrdersDAO ordersDAO = new OrderDAOImplementation();
+        OrderDAO orderDAO = new OrderDAOImpl();
         String page = null;
-        GoodList productList;
+        ProductList productList;
 
         // extract values from user request
         String orderID = request.getParameter(PARAM_ORDERID);
@@ -68,8 +68,8 @@ public class AdminPageCommand implements ActionCommand {
             STAXMLParser parser = new STAXMLParser();
             try {
                 productList = parser.doParse(xmlPath);
-                for (Good product : productList.getGoods()){
-                    productsDAO.insertOrUpdateProduct(product);
+                for (Product product : productList.getProducts()){
+                    productDAO.insertOrUpdateProduct(product);
                 }
             } catch (CannotReadXMLException e) {
                 request.setAttribute("errorParseXMLMessage", MessagesManager.getProperty("message.readxmlerror"));
@@ -87,7 +87,7 @@ public class AdminPageCommand implements ActionCommand {
 
         //get all products from db and show it on web page
         if(request.getParameter(PARAM_SHOW_PRODUCTS) != null) {
-            productList = productsDAO.getAllPRoducts();
+            productList = productDAO.getAllPRoducts();
             request.setAttribute("productList", productList);
             return ConfigurationManager.getProperty("path.page.admin");
         }
@@ -112,13 +112,13 @@ public class AdminPageCommand implements ActionCommand {
 
         //get all orders from db and show it on web page
         if(request.getParameter(PARAM_SHOW_ORDERS) !=null) {
-            request.setAttribute("oderList", ordersDAO.getAllOrders());
+            request.setAttribute("oderList", orderDAO.getAllOrders());
             return ConfigurationManager.getProperty("path.page.admin");
         }
 
         //change status of order to complete
         if(request.getParameter(PARAM_COMPLETE) !=null) {
-            ordersDAO.orderComlete(Integer.valueOf(orderID), Status.COMPLETED);
+            orderDAO.orderComlete(Integer.valueOf(orderID), Status.COMPLETED);
             request.setAttribute("orderCompleteMessage", MessagesManager.getProperty("message.ordercomplete"));
             page = ConfigurationManager.getProperty("path.page.admin");
         }

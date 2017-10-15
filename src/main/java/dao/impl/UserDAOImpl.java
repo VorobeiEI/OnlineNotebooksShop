@@ -1,6 +1,6 @@
 package dao.impl;
 
-import dao.connectionPool.ConnectionPool;
+import dao.connectionpool.ConnectionPool;
 import dao.exception.DatabaseException;
 import dao.interfaces.UserDAO;
 import entity.users.User;
@@ -276,14 +276,12 @@ public class UserDAOImpl implements UserDAO {
 
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
-            e.printStackTrace();
             throw new DatabaseException(e);
 
         } finally {
             ConnectionPool.close(ps);
             ConnectionPool.close(conn);
         }
-
     }
 
     @Override

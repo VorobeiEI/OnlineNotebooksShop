@@ -1,9 +1,9 @@
 package bussinessprocesses.command.enumcommand;
 
 import bussinessprocesses.command.ActionCommand;
-import bussinessprocesses.command.AdminPage.AdminPageCommand;
+import bussinessprocesses.command.adminpage.AdminPageCommand;
 import bussinessprocesses.command.mainpages.*;
-import bussinessprocesses.command.otherPages.*;
+import bussinessprocesses.command.otherpages.*;
 
 /**
  * Created by jacksparrow on 01.10.17.

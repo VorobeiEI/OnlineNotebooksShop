@@ -1,21 +1,19 @@
 package dao.impl;
 
-import dao.connectionPool.ConnectionPool;
+import dao.connectionpool.ConnectionPool;
 import dao.exception.DatabaseException;
-import dao.interfaces.OrdersDAO;
+import dao.interfaces.OrderDAO;
 import entity.order.Order;
 import entity.order.Status;
-import entity.users.User;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  * Created by jacksparrow on 26.09.17.
  */
-public class OrderDAOImplementation implements OrdersDAO {
+public class OrderDAOImpl implements OrderDAO {
 
     public static final String SQL_CREATE_ODER = "INSERT INTO orders (order_amount, id_user, status, date) values (?, ?, ?, ?)";
     public static final String SQL_CREATE_ODER_PRODUCT = "INSERT INTO items_orders (id_order, id_item) values (?, ?)";
@@ -25,7 +23,7 @@ public class OrderDAOImplementation implements OrdersDAO {
     public static final String SQL_SELECT_ORDER_BY_ID = "SELECT id, order_amount, id_user, status, date FROM orders WHERE id = ?";
     public static final String SQL_SELECT_PRODUCT_FROM_ORDER = "SELECT id_item FROM items_orders WHERE id_order = ?";
 
-    private static final Logger logger = Logger.getLogger(OrderDAOImplementation.class);
+    private static final Logger logger = Logger.getLogger(OrderDAOImpl.class);
 
     public static final class OrderNotFoundEException extends RuntimeException{
         public OrderNotFoundEException(final int orderId){
@@ -110,7 +108,6 @@ public class OrderDAOImplementation implements OrdersDAO {
             ConnectionPool.close(ps);
             ConnectionPool.close(conn);
         }
-
     }
 
     @Override
@@ -142,14 +139,6 @@ public class OrderDAOImplementation implements OrdersDAO {
             ConnectionPool.close(ps);
             ConnectionPool.close(conn);
         }
-    }
-
-    @Override
-    public void changeStatus(int order_id) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        Status status = null;
-
     }
 
     @Override

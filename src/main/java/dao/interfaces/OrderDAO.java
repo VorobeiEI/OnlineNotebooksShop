@@ -11,14 +11,12 @@ import java.util.LinkedList;
 /**
  * Created by jacksparrow on 20.09.17.
  */
-public interface OrdersDAO {
+public interface OrderDAO {
     public void createOrder(Order order);
 
     public ArrayList<Order> getAllOrders();
 
     public ArrayList<Order> getAllUsersOrders(int user_id);
-
-    public void changeStatus(int order_id);
 
     public void orderComlete(int order_id, Status status);
 

@@ -36,7 +36,7 @@
 	  <!-- table for view all product from data base -->
       <table class="table table-bordered">
          <tbody>
-            <c:forEach items="${productList.getGoods()}" var="product">
+            <c:forEach items="${productList.getProducts()}" var="product">
                <tr>
                   <td align="left">Product: ${product.name}</td>
                   <td align="left">Product_ID: ${product.id}</td>

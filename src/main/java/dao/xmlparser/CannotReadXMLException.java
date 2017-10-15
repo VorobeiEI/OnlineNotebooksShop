@@ -1,4 +1,4 @@
-package dao.xmlParser;
+package dao.xmlparser;
 
 /**
  * Created by jacksparrow on 02.10.17.

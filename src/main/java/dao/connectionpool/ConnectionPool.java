@@ -1,4 +1,4 @@
-package dao.connectionPool;
+package dao.connectionpool;
 
 import org.apache.log4j.Logger;
 
@@ -26,7 +26,7 @@ public class ConnectionPool {
             Context envContext = (Context) initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup(DATASOURCE_NAME);
         }catch (NamingException e){
-            e.printStackTrace();
+            logger.error(e.getMessage(), e);
         }
     }
 
