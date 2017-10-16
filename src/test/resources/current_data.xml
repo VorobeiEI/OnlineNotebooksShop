@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <User id="18"
+          name="Воробей"
+    cr_date="2017-10-03"
+    email="vorobeiei@gmail.com"
+    password="qwerty"
+    status="STATUS_OK"
+    phone="0937745978"
+    role="CLIENT"/>
+
+</dataset>

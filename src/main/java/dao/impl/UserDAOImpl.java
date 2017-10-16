@@ -304,6 +304,9 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
             throw new DatabaseException(e);
+        }finally {
+            ConnectionPool.close(ps);
+            ConnectionPool.close(conn);
         }
     }
 }

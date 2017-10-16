@@ -156,174 +156,174 @@
 	</product>
 	<product>
 		<id>15</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Spectre</name>
+		<description>* Intel Core i5-7200U Processor * Windows 10 Home * 13.3" diagonal FHD UWVA BrightView WLED-backlit touch screen * 8 GB LPDDR3-1866 SDRAM * 256 GB PCIe NVMe M.2 SSD</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>256</memory>
+		<price>1899</price>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>16</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Spectre X2</name>
+		<description>* 12.0-inch WLED-backlit Touchscreen* 6th generation Intel Core m5 Processor* Detachable Keyboard* 8GB RAM* 256GB SSD* Intel HD Graphics</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>256</memory>
+		<price>1199</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>17</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 14" BS017tu</name>
+		<description>* Intel Celeron Processor* 14.0-inch diagonal HD BrightView WLED-backlit Display* 64GB HDD* 4GB RAM</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>4</ram>
+		<memory>64</memory>
+		<price>399</price>
+		<quantity>2</quantity>
 	</product>
 	<product>
 		<id>18</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Envy 13.3" ad028TX</name>
+		<description>* Intel Core i5 Processor* 13.3" FHD WLED Backlit Touchscreen Display* 256GB SSD* 8GB RAM* NVIDIA GeForce MX150 Graphics* Bang & Olufsen Dual Speakers</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>256</memory>
+		<price>1799</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>19</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 14" bw070AU</name>
+		<description>This HP 14-inch bw070AU AMD A4 8GB 1TB Notebook is great for keeping all your files with you when you're on the go. There's no need to lug around an external hard drive - with a huge 1TB of storage in the HP 2JQ97PA ideal for storing all your photos, movies and music directly on your Notebook</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>549</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>20</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Pavilion 15.6" cc521TX</name>
+		<description>* Intel Core i5 Processor* 15.6 Inch Diagonal FHD Anti-Glare WLED-Backlit Display * 1TB Hard Drive* 8GB RAM</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>888</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>21</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Stream x360 11.6</name>
+		<description>* Intel Celeron Processor* 11.6-inch diagonal HD WLED Anti-Glare Touchscreen* 500GB Hard Drive* 8GB RAM</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>500</memory>
+		<price>549</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>22</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP Pavilion 15.6" cc590TX</name>
+		<description>* 7th generation Intel Core i7 Processor* 15.6-inch diagonal FHD BrightView WLED Touchscreen Display* 128GB SSD 2TB Hard Drive* 16GB RAM</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
+		<ram>16</ram>
+		<memory>2000</memory>
+		<price>1799</price>
+		<quantity>3</quantity>
 	</product>
 	<product>
 		<id>23</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 14" Intel </name>
+		<description>This HP Pavilion 2-in-1 Notebook features a 14-inch high definition WLED-backlit touchscreen for bright and bold images, plus a powerful 7th Generation Intel Core i5 processor to support high resolution graphics and keep up with your multitasking demands.</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>500</memory>
+		<price>1299</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>24</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 15.6" bs627TX </name>
+		<description>* 7th generation Intel Core i7 Processor * 15.6-inch diagonal HD BrightView WLED-backlit Display* 2TB Hard Drive* 8GB RAM* AMD Radeon 530 Graphics * 1x1 802.11 ac WLAN* 4-cell 41WHr lithium-ion battery</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>2000</memory>
+		<price>1099</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>25</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 15" bw064AU</name>
+		<description> AMD Dual-Core A6* 15.6-inch diagonal HD BrightView Touchscreen* 128GB SSD* 8GB RAM</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>128</memory>
+		<price>649</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>26</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 13.3" Pavilion x360</name>
+		<description>* 7th generation Intel Core i5 Processor * Intel HD Graphics 620* 13.3-inch diagonal HD Anti-Glare LED Display* 802.11 ac WLAN</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>1199</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>27</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 15.6" 15-ay185TX</name>
+		<description>This HP Notebook has a 15.6-inch HD display and a powerful 7th Generation Intel Core i5 processor to support higher-resolution graphics for an immersive experience, and to also keep up with your multitasking demands.</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>899</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>28</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 14" 14-an023AU</name>
+		<description>* AMD Quad-Core A4* 14.0" Diagonal HD BrightView WLED-Backlit Display* 1TB Hard Drive* 8GB RAM* AMD Radeon R3 HD Graphics</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>8</ram>
+		<memory>1000</memory>
+		<price>549</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>29</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<name>HP 14" 14-am085TU</name>
+		<description>* Intel Celeron Processor N3060* Intel HD Graphics 400* 14.0-inch diagonal HD BrightView WLED-backlit Display* 64GB eMMC storage</description>
+		<producerid>3</producerid>
 		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
+		<ram>4</ram>
+		<memory>64</memory>
+		<price>349</price>
 		<quantity>1</quantity>
 	</product>
 	<product>
 		<id>30</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
@@ -334,7 +334,7 @@
 		<id>31</id>
 		<name>Mega</name>
 		<description>Ultrathin</description>
-		<producerid>1</producerid>
+		<producerid>2</producerid>
 		<cpu>2.3</cpu>
 		<ram>1024</ram>
 		<memory>520</memory>
@@ -351,126 +351,5 @@
 		<memory>520</memory>
 		<price>500</price>
 		<quantity>1</quantity>
-	</product>
-	<product>
-		<id>33</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>1</quantity>
-	</product>
-	<product>
-		<id>34</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>35</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>36</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>37</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>38</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>39</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>40</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>41</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>42</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
-	</product>
-	<product>
-		<id>43</id>
-		<name>Mega</name>
-		<description>Ultrathin</description>
-		<producerid>2</producerid>
-		<cpu>2.3</cpu>
-		<ram>1024</ram>
-		<memory>520</memory>
-		<price>500</price>
-		<quantity>2</quantity>
 	</product>
 </products>
