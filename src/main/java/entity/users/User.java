@@ -1,5 +1,6 @@
 package entity.users;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
 public class User {
     private int id;
     private String name;
-    private Date creationDate;
+    private Timestamp creationDate;
     private String email;
     private String passwordHash;
     private String phone;
@@ -31,11 +32,11 @@ public class User {
         this.name = name;
     }
 
-    public Date getCreationDate() {
+    public Timestamp getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(Timestamp creationDate) {
         this.creationDate = creationDate;
     }
 

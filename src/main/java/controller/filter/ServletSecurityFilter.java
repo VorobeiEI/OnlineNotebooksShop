@@ -27,6 +27,7 @@ public class ServletSecurityFilter implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		String role = (String) session.getAttribute("role");
+		System.out.println(role);
 		if(role != String.valueOf(UserType.ADMINISTRATOR)){
 			resp.sendRedirect(req.getContextPath() + indexPath);
 		}

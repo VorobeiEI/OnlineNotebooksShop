@@ -78,9 +78,8 @@ public class UserDAOImpl implements UserDAO {
                 user = new User();
                 user.setId(rs.getInt(1));
                 user.setName(rs.getString(2));
-                user.setCreationDate(new java.util.Date(
-                        rs.getDate(3).getTime()
-                ));
+                user.setCreationDate(
+                        rs.getTimestamp(3));
                 user.setEmail(rs.getString(4));
                 user.setPasswordHash(rs.getString(5));
                 user.setStatus(UserStatus.valueOf(rs.getString(6)));
@@ -100,7 +99,6 @@ public class UserDAOImpl implements UserDAO {
             ConnectionPool.close(conn);
         }
 
-
     }
 
     @Override
@@ -111,9 +109,8 @@ public class UserDAOImpl implements UserDAO {
         try {
             conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(SQL_CREATE_USER);
-
             ps.setString(1, user.getName());
-            ps.setDate(2, new Date(System.currentTimeMillis()));
+            ps.setTimestamp(2, new Timestamp(Calendar.getInstance().getTime().getTime()));
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPasswordHash());
             ps.setString(5, user.getStatus().toString());
@@ -145,9 +142,9 @@ public class UserDAOImpl implements UserDAO {
                 User user = new User();
                 user.setId(rs.getInt(1));
                 user.setName(rs.getString(2));
-                user.setCreationDate(new java.util.Date(
-                        rs.getDate(3).getTime()
-                ));
+                user.setCreationDate(
+                        rs.getTimestamp(3)
+                );
                 user.setEmail(rs.getString(4));
                 user.setPasswordHash(rs.getString(5));
                 user.setStatus(UserStatus.valueOf(rs.getString(6)));
@@ -223,9 +220,8 @@ public class UserDAOImpl implements UserDAO {
                 User user = new User();
                 user.setId(rs.getInt(1));
                 user.setName(rs.getString(2));
-                user.setCreationDate(new java.util.Date(
-                        rs.getDate(3).getTime()
-                ));
+                user.setCreationDate(
+                        rs.getTimestamp(3));
                 user.setEmail(rs.getString(4));
                 user.setPasswordHash(rs.getString(5));
                 user.setStatus(UserStatus.valueOf(rs.getString(6)));

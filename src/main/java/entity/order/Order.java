@@ -1,9 +1,7 @@
 package entity.order;
 
-import entity.users.User;
-import sun.util.calendar.LocalGregorianCalendar;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 
 /**
@@ -16,13 +14,13 @@ public class Order {
     private LinkedList<Integer> prodacts = new LinkedList<>();
     private Status status;
     private int userId;
-    private Date date;
+    private Timestamp date;
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

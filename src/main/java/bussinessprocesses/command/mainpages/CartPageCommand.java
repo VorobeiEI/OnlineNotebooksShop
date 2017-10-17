@@ -18,6 +18,8 @@ import entity.users.UserStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -120,7 +122,7 @@ public class CartPageCommand implements ActionCommand {
             order.setStatus(Status.PAID);
             order.setUserId(userId);
             order.setSum(orderAmount);
-            order.setDate(new Date(System.currentTimeMillis()));
+            order.setDate(new Timestamp(Calendar.getInstance().getTime().getTime()));
             orderDAO.createOrder(order);
 
             request.getSession().setAttribute("order", null);

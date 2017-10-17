@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by jacksparrow on 26.09.17.
@@ -44,7 +45,7 @@ public class OrderDAOImpl implements OrderDAO {
             psCreateIrder.setDouble(1, order.getSum());
             psCreateIrder.setInt(2,order.getUserId());
             psCreateIrder.setString(3, order.getStatus().toString());
-            psCreateIrder.setDate(4,new Date(System.currentTimeMillis()));
+            psCreateIrder.setTimestamp(4,new Timestamp(Calendar.getInstance().getTime().getTime()));
             psCreateIrder.execute();
             ResultSet rs = psCreateIrder.getGeneratedKeys();
 
@@ -96,7 +97,7 @@ public class OrderDAOImpl implements OrderDAO {
                 order.setSum(rs.getDouble(2));
                 order.setUserId(rs.getInt(3));
                 order.setStatus(Status.valueOf(rs.getString(4)));
-                order.setDate(rs.getDate(5));
+                order.setDate(rs.getTimestamp(5));
                 orderList.add(order);
             }
 
@@ -127,7 +128,7 @@ public class OrderDAOImpl implements OrderDAO {
                 order.setSum(rs.getDouble(2));
                 order.setUserId(rs.getInt(3));
                 order.setStatus(Status.valueOf(rs.getString(4)));
-                order.setDate(rs.getDate(5));
+                order.setDate(rs.getTimestamp(5));
                 orderList.add(order);
             }
 
@@ -184,7 +185,7 @@ public class OrderDAOImpl implements OrderDAO {
                 order.setSum(rs.getDouble(2));
                 order.setUserId(rs.getInt(3));
                 order.setStatus(Status.valueOf(rs.getString(4)));
-                order.setDate(rs.getDate(5));
+                order.setDate(rs.getTimestamp(5));
                 return order;
             }else {
                 throw new OrderNotFoundEException(order_id);

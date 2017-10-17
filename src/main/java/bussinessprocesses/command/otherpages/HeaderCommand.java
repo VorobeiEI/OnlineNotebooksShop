@@ -52,7 +52,9 @@ public class HeaderCommand implements ActionCommand {
 
         // redirect to admin page
         if (request.getParameter(PARAM_NAME_ADMIN) != null) {
-            if(request.getSession().getAttribute("role").equals(String.valueOf(UserType.ADMINISTRATOR))) {
+            if(request.getSession().getAttribute("role")==null) {
+                request.getSession().setAttribute("role", UserType.GUEST);}
+                else if(request.getSession().getAttribute("role").equals(UserType.ADMINISTRATOR)){
                 return ConfigurationManager.getProperty("path.page.admin");
             } else {
                 return ConfigurationManager.getProperty("path.page.index");

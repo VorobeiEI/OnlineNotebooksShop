@@ -81,6 +81,7 @@
                   <td align="left">Name: ${order.sum}</td>
                   <td align="left">User_ID: ${order.userId}</td>
                   <td align="left">Status: ${order.status}</td>
+                  <td align="left">Date: ${order.getDate()}</td>
                   <td>
                      <form name="OrderListForm" method="POST" action="controller">
                         <input type="hidden" name="command" value="admin" /> 

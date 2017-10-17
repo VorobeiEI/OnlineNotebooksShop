@@ -48,17 +48,20 @@ public class Controller extends HttpServlet {
 
         if (session.isNew()) {
             session.setAttribute("role", String.valueOf(UserType.GUEST));
+            System.out.println(session.getAttribute("role"));
         }
         // definition of the command, which came from a JSP
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(request);
 
         page = command.execute(request);
+        //method called page of answer
         if (page != null) {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
             // Call the page response to the request
             dispatcher.forward(request, response);
         } else {
+            //set page with error massages
             page = ConfigurationManager.getProperty("path.page.index");
             request.getSession().setAttribute("nullPage", MessagesManager.getProperty("message.nullpage"));
             response.sendRedirect(request.getContextPath() + page);

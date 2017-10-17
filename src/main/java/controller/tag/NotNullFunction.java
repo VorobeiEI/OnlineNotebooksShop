@@ -16,7 +16,7 @@ public class NotNullFunction extends TagSupport{
     public static String notNull(Object ob){
         String res = null;
         if(ob == null || ob.toString().isEmpty()){
-            res = "Guest";
+            res = "GUEST";
         }else {
             res = ob.toString();
         }
